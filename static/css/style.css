@@ -1,19 +1,19 @@
 /* ===========================================
    [AI 진로탐색 플랫폼] 공통 톤앤매너 style.css
-   - 대학생/젊은 세대 친근함, 밝고 현대적, 명확함
+   - 신뢰감 있고 전문적인 분위기를 위한 차분한 톤앤매너
    - 컬러/폰트/레이아웃 변수화로 일관성 유지
 =========================================== */
 
 /* 1. 컬러 & 폰트 변수 */
 :root {
   /* 메인 컬러 */
-  --primary-blue: #3B82F6;   /* 신뢰, 밝은 기술 */
-  --primary-green: #34D399;  /* 성장, 에너지 */
-  --primary-yellow: #FDE68A; /* 활기, 포인트 */
-  --accent-coral: #FB7185;   /* 이벤트, CTA */
-  --bg-white: #F9FAFB;       /* 전체 배경 */
-  --gray-light: #E5E7EB;     /* 카드/구분 배경 */
-  --gray-medium: #D1D5DB;    /* 구분선, 서브 */
+  --primary-blue: #1E3A8A;   /* 신뢰감 있는 네이비 */
+  --primary-green: #1D4E89;  /* 포인트 블루그린 */
+  --primary-yellow: #F5C553; /* 절제된 포인트 */
+  --accent-coral: #C35149;   /* 버튼/CTA 강조 */
+  --bg-white: #F4F6F8;       /* 전체 배경 */
+  --gray-light: #E2E8F0;     /* 카드/구분 배경 */
+  --gray-medium: #CBD5E1;    /* 구분선, 서브 */
   --black-main: #222;
   --font-main: 'Pretendard', 'Spoqa Han Sans', sans-serif;
   --radius: 18px;
