@@ -1,5 +1,186 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>AI 기반 진로탐색</h1>
-<p>AI가 추천하는 나만의 커리어 로드맵을 확인해 보세요.</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>AI Genome Career Map – 내 안의 미래, AI로 찾다</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 헤더 -->
+  <header>
+    <nav style="background:transparent; box-shadow:none;">
+      <div style="max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 0 0 0;">
+        <a href="#" style="font-size:1.5rem;font-weight:900;color:var(--blue-main);letter-spacing:-.03em;">
+          <span style="color:var(--green-main)">AI Genome</span> Career Map
+        </a>
+        <div style="display:flex;gap:32px;">
+          <a href="#about">서비스소개</a>
+          <a href="#test">진단시작</a>
+          <a href="#result">결과예시</a>
+          <a href="#growth">성장피드백</a>
+          <a href="#community">커뮤니티</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="hero-title">Decode Your AI DNA.<br>Design Your Future.</div>
+    <div class="hero-desc">
+      숨겨진 나만의 <span class="highlight">AI 역량과 커리어</span>를 5분 만에 탐험하세요.<br>
+      대학생을 위한 가장 트렌디한 AI 진로 매핑 서비스!
+    </div>
+    <a href="#test"><button class="cta-btn">5분 진단 시작하기</button></a>
+  </section>
+
+  <!-- 서비스 소개 -->
+  <section class="section" id="about">
+    <div class="section-title">AI Genome Career Map이란?</div>
+    <div class="section-desc">
+      성격, 흥미, 가치관, 기술역량 등 <b>다차원 진단</b>을 통해<br>
+      나만의 <span class="highlight">맞춤 커리어</span>를 추천해주는<br>
+      <b>AI 기반 진로 탐색 플랫폼</b>입니다.
+    </div>
+    <div class="card-list">
+      <div class="card">
+        <div class="feature-icon">🧬</div>
+        <div><b>30문항 초간편 설문</b><br>MBTI, RIASEC, AI 스킬까지 모두 한 번에!</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">📊</div>
+        <div>AI로 내 <span class="highlight">강점·적성·기회</span>를 실시간 분석<br>직무·역량 그래프 한눈에!</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">💡</div>
+        <div><span class="highlight">최신 채용 트렌드</span> 기반 추천<br>미래 유망 직업까지 제시</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">🎓</div>
+        <div>진짜 대학생 <span class="highlight">성공 스토리/후기</span><br>커뮤니티와 피드백까지!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 진단 시작 안내 -->
+  <section class="section" id="test">
+    <div class="section-title">진단은 어떻게 진행되나요?</div>
+    <div class="card-list">
+      <div class="card">
+        <div class="feature-icon">1️⃣</div>
+        <div><b>소셜 로그인</b> 후 시작<br>이름, 전공, 관심분야 간단 선택</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">2️⃣</div>
+        <div>AI가 안내하는 <b>L1~L5 단계별 설문</b> 진행<br>모든 질문은 적응형·쉬운 예시 중심</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">3️⃣</div>
+        <div>설문 종료 후 <span class="highlight">즉시 결과 대시보드</span> 확인<br>추천 커리어, 성장 포인트 안내</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;">
+      <a href="#test"><button class="cta-btn">지금 진단 시작하기</button></a>
+    </div>
+  </section>
+
+  <!-- 결과 예시 -->
+  <section class="section" id="result">
+    <div class="section-title">결과 화면 미리보기</div>
+    <div class="card-list">
+      <div class="card">
+        <div class="feature-icon">🌱</div>
+        <div>내 <span class="highlight">AI 역량·성향 그래프</span><br>빅파이브·흥미·기술스킬 등 시각화</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">🚀</div>
+        <div>상위 <span class="highlight">추천 직무 Top5</span> 카드<br>AI가 산출한 적합도/성장 전망 안내</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">💬</div>
+        <div><b>개인화 코멘트/성장 가이드</b><br>진로코치처럼 행동제안까지!</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">📎</div>
+        <div>PDF 결과 리포트, 멘토/교육 연결<br>실행으로 이어지는 진짜 성장 플로우</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 성장 피드백 -->
+  <section class="section" id="growth">
+    <div class="section-title">성장 가이드 & 리소스</div>
+    <div class="section-desc">
+      부족한 역량을 채울 <b>온라인 강좌, 교육 커리큘럼, 멘토링, 트렌드 뉴스</b>까지<br>
+      진단 이후에도 내 커리어 성장 여정이 계속 이어집니다!
+    </div>
+    <div class="card-list">
+      <div class="card">
+        <div class="feature-icon">🧑‍💻</div>
+        <div>맞춤형 <span class="highlight">AI·Tech 역량</span> 성장 코스</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">📚</div>
+        <div>실전형 <span class="highlight">커리어 교육 콘텐츠</span> 추천</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">🤝</div>
+        <div>현직자 멘토·커뮤니티 연결</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">📰</div>
+        <div>최신 채용/AI 트렌드 뉴스</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 커뮤니티 -->
+  <section class="section" id="community">
+    <div class="section-title">커뮤니티 & 후기</div>
+    <div class="card-list">
+      <div class="card">
+        <div class="feature-icon">🌟</div>
+        <div>실제 대학생 <b>진로 성공 스토리</b> 공유</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">🙋‍♂️</div>
+        <div>자유 Q&A · 진로 고민 나눔</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">🎉</div>
+        <div>이벤트/챌린지, 대학생 밋업</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-title">자주 묻는 질문 (FAQ)</div>
+    <div class="faq-item">
+      <b>Q. 진단 결과는 무료인가요?</b><br>
+      A. 네! 기본 진단 및 핵심 결과는 누구나 무료로 확인 가능합니다.
+    </div>
+    <div class="faq-item">
+      <b>Q. 진단이 어렵거나 오래 걸리나요?</b><br>
+      A. 아니요, 평균 5분 이내, 쉽고 빠르게 완료할 수 있어요!
+    </div>
+    <div class="faq-item">
+      <b>Q. 개인정보는 안전하게 보호되나요?</b><br>
+      A. 네, 모든 데이터는 암호화되어 저장되며 외부에 절대 공개되지 않습니다.
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div style="margin-bottom:10px;">
+      © 2025 AI Genome Career Map. All rights reserved.<br>
+      <a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | Contact : hello@aigenome.com
+    </div>
+    <div>
+      <a href="#">인스타그램</a> | <a href="#">유튜브</a> | <a href="#">블로그</a>
+    </div>
+  </footer>
+</body>
+</html>
