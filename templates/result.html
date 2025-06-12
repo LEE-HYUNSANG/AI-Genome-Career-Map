@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Your Career Assessment Results</h2>
+<canvas id="resultChart" width="400" height="200"></canvas>
+<ul>
+{% for rec in recommendations %}
+  <li>{{ rec }}</li>
+{% endfor %}
+</ul>
+<a href="/survey" class="button">Retake Assessment</a>
+<a href="/result?session={{ session_id }}" class="button">Share Results</a>
+<script>
+const data = {{ chart_data | tojson }};
+const ctx = document.getElementById('resultChart').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: data.labels,
+        datasets: [{
+            label: 'Scores',
+            data: data.scores,
+            backgroundColor: ['#4e79a7','#f28e2b','#e15759','#76b7b2']
+        }]
+    },
+    options: { responsive: true }
+});
+</script>
+{% endblock %}
