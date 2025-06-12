@@ -15,9 +15,10 @@ This repository contains a minimal FastAPI web application that serves as an AI-
    ```bash
    pip install -r requirements.txt
    ```
-2. Start the server:
+2. Start the server (the application listens on port `9999` by default):
    ```bash
-   uvicorn app.main:app --reload
+   uvicorn app.main:app --reload --port 9999
    ```
-3. Open `http://localhost:8000` in your browser.
+   Alternatively you can simply run `python app/main.py`.
+3. Open `http://localhost:9999` in your browser.
 
