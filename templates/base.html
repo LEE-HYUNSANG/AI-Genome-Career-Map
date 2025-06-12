@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Career Assessment</title>
+    <title>AI 기반 진로탐색</title>
     <link rel="stylesheet" href="/static/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<div class="container">
+<header>
+    <nav>
+        <a href="00_home.html">홈</a> |
+        <a href="01_service.html">서비스 소개</a> |
+        <a href="02_diagnostics.html">진단 시작하기</a> |
+        <a href="03_result.html">진단 결과</a> |
+        <a href="04_resources.html">성장 피드백</a> |
+        <a href="05_community.html">커뮤니티</a> |
+        <a href="06_partners.html">파트너 안내</a>
+    </nav>
+</header>
+<main class="container">
     {% block content %}{% endblock %}
-</div>
+</main>
+<footer>
+    <ul>
+        <li><a href="#">개인정보/이용약관</a></li>
+        <li><a href="#">SNS 바로가기</a></li>
+        <li><a href="#">고객센터/문의</a></li>
+    </ul>
+</footer>
 </body>
 </html>
