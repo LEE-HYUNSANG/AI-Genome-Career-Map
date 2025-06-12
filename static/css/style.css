@@ -38,6 +38,33 @@ body {
 }
 a { color: var(--blue-main); text-decoration: none; transition: color 0.13s; }
 a:hover { color: var(--green-main); }
+
+/* 헤더 & 내비게이션 */
+header.site-header {
+  background: var(--offwhite);
+  box-shadow: var(--shadow-card);
+}
+nav.nav {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--blue-main);
+}
+.nav-logo span { color: var(--green-main); }
+.nav-menu a {
+  margin-left: 24px;
+  font-weight: 600;
+  color: var(--black-main);
+  transition: color 0.13s;
+}
+.nav-menu a:hover { color: var(--green-main); }
 h1, h2, h3, h4, h5 {
   color: var(--black-main);
   font-weight: 800;
