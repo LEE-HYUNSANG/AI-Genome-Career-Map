@@ -34,3 +34,7 @@ async def community(request: Request):
 @app.get('/partners', response_class=HTMLResponse)
 async def partners(request: Request):
     return templates.TemplateResponse('06_partners.html', {'request': request})
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=9999)
