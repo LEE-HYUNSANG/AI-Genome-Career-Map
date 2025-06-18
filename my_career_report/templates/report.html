@@ -726,8 +726,9 @@
   });
 
     // Ⅱ. 직무 관심사 차트
+    const interestCodes = ['R','I','A','S','E','C'];
     const interestLabels = ["현실형","탐구형","예술형","사회형","기업형","관습형"];
-    const interestScores = interestLabels.map(k => data.interest[k]);
+    const interestScores = interestCodes.map(k => data.interest[k]);
   new Chart(document.getElementById("interestChart"), {
     type: 'bar',
     data: { labels: interestLabels, datasets: [{ label: 'Score', data: interestScores }] },
@@ -735,8 +736,9 @@
   });
 
     // Ⅲ. 가치관 차트
+  const valuesCodes = ['A','I','Rec','Rel','S','W'];
   const valuesLabels = ["능력발휘","자율성","보상","안정성","사회적 인정","워라밸"];
-  const valuesScores = valuesLabels.map(k => data.values[k]);
+  const valuesScores = valuesCodes.map(k => data.values[k]);
   new Chart(document.getElementById("valuesChart"), {
     type: 'radar',
     data: { labels: valuesLabels, datasets: [{ label: 'Score', data: valuesScores }] },
@@ -744,8 +746,9 @@
   });
 
     // Ⅳ. AI 활용능력 차트
+  const aiCodes = ['EU','TS','CE','AO','SE','CB','ER'];
   const aiLabels = ["AI 이해","프롬프트","검증","도구 적용","학습","협업","윤리"];
-  const aiScores = aiLabels.map(k => data.ai[k]);
+  const aiScores = aiCodes.map(k => data.ai[k]);
   new Chart(document.getElementById("aiChart"), {
     type: 'radar',
     data: { labels: aiLabels, datasets: [{ label: 'Score', data: aiScores }] },
