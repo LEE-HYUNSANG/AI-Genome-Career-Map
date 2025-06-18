@@ -18,15 +18,17 @@ def render_html(data: dict, cfg: dict) -> str:
     styles = dict(cfg['styles'])
     styles['css'] = rel_style
 
-    # Convert chart image paths to be relative to the output HTML directory so
-    # that both the browser and WeasyPrint can correctly locate them.
+    # Convert chart image paths to ``file://`` URIs so WeasyPrint can always
+    # resolve them regardless of the current working directory.  Using absolute
+    # URIs avoids issues with ``..`` segments that some environments disallow
+    # when loading local files.
     charts_cfg = dict(cfg['charts'])
     if 'images' in charts_cfg:
-        rel_images = {
-            key: os.path.relpath(path, start=os.path.dirname(cfg['output']['html']))
+        uri_images = {
+            key: Path(path).resolve().as_uri()
             for key, path in charts_cfg['images'].items()
         }
-        charts_cfg['images'] = rel_images
+        charts_cfg['images'] = uri_images
 
     html = template.render(**data, styles=styles, charts=charts_cfg)
     output_path = cfg['output']['html']
