@@ -14,6 +14,16 @@ npm install --silent
 
 처음 한 번만 실행하면 필요한 패키지가 모두 설치됩니다.
 
+## 환경 점검
+
+아래 명령을 실행해 Node와 Python이 정상적으로 설치되었는지 확인합니다.
+
+```bash
+node -v
+npm ls --depth=0
+python --version
+```
+
 ## 리포트 생성
 
 아래 명령을 실행하면 `dist` 폴더에 `report.html`과 `report.pdf`가 생성됩니다.
