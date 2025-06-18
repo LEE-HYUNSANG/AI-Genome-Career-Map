@@ -665,9 +665,15 @@
   </details>
 
   <script>
+    // Prepare raw data objects for charts
+    const big5Data = {{ big5 | tojson }};
+    const interestData = {{ interest | tojson }};
+    const valuesData = {{ values | tojson }};
+    const aiData = {{ ai | tojson }};
+
     // Ⅰ. BIG-5 차트
     const big5Labels = ["E","A","C","N","O"];
-    const big5Scores = big5Labels.map(k => {{ big5[k] }});
+    const big5Scores = big5Labels.map(k => big5Data[k]);
     new Chart(document.getElementById("big5Chart"), {
       type: 'bar',
       data: { labels: big5Labels, datasets: [{ label: 'Your Score', data: big5Scores }] },
@@ -676,7 +682,7 @@
 
     // Ⅱ. 직무 관심사 차트
     const interestLabels = ["R","I","A","S","E","C"];
-    const interestScores = interestLabels.map(k => {{ interest[k] }});
+    const interestScores = interestLabels.map(k => interestData[k]);
     new Chart(document.getElementById("interestChart"), {
       type: 'bar',
       data: { labels: interestLabels, datasets: [{ label: 'Your Score', data: interestScores }] },
@@ -685,7 +691,7 @@
 
     // Ⅲ. 가치관 차트
     const valuesLabels = ["A","I","Rec","Rel","S","W"];
-    const valuesScores = valuesLabels.map(k => {{ values[k] }});
+    const valuesScores = valuesLabels.map(k => valuesData[k]);
     new Chart(document.getElementById("valuesChart"), {
       type: 'bar',
       data: { labels: valuesLabels, datasets: [{ label: 'Your Score', data: valuesScores }] },
@@ -694,7 +700,7 @@
 
     // Ⅳ. AI 활용능력 차트
     const aiLabels = ["EU","TS","CE","AO","SE","CB","ER"];
-    const aiScores = aiLabels.map(k => {{ ai[k] }});
+    const aiScores = aiLabels.map(k => aiData[k]);
     new Chart(document.getElementById("aiChart"), {
       type: 'bar',
       data: { labels: aiLabels, datasets: [{ label: 'Your Score', data: aiScores }] },
