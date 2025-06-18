@@ -34,7 +34,7 @@ def main():
 
     chart_paths = {
         'big5': os.path.join(chart_dir, 'big5.png'),
-        'interest': os.path.join(chart_dir, 'interest.png'),
+        'riasec': os.path.join(chart_dir, 'riasec.png'),
         'values': os.path.join(chart_dir, 'values.png'),
         'ai': os.path.join(chart_dir, 'ai.png'),
         'tech': os.path.join(chart_dir, 'tech.png'),

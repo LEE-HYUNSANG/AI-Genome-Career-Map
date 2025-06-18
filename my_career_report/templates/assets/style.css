@@ -116,21 +116,21 @@ img {
     text-align: right;
 }
 
-/* Alignment and layout for interest results table */
-.interest-results {
+/* Alignment and layout for riasec results table */
+.riasec-results {
     table-layout: fixed;
 }
-.interest-results th,
-.interest-results td {
+.riasec-results th,
+.riasec-results td {
     width: 25%;
 }
-.interest-results th {
+.riasec-results th {
     text-align: center;
 }
-.interest-results td:first-child {
+.riasec-results td:first-child {
     text-align: center;
 }
-.interest-results td:not(:first-child) {
+.riasec-results td:not(:first-child) {
     text-align: right;
 }
 

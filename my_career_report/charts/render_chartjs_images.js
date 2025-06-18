@@ -52,18 +52,18 @@ async function renderCharts(dataPath, outDir) {
   let buffer = await canvas.renderToBuffer(config);
   fs.writeFileSync(path.join(outDir, 'big5.png'), buffer);
 
-  const interestCodes = ['R','I','A','S','E','C'];
-  const interestLabels = ['현실형','탐구형','예술형','사회형','기업형','관습형'];
-  const interestScores = interestCodes.map(k => data.interest[k]);
-  const interestNorm = interestCodes.map(k => (data.interest_norm || {})[k]);
+  const riasecCodes = ['R','I','A','S','E','C'];
+  const riasecLabels = ['현실형','탐구형','예술형','사회형','기업형','관습형'];
+  const riasecScores = riasecCodes.map(k => data.riasec[k]);
+  const riasecNorm = riasecCodes.map(k => (data.riasec_norm || {})[k]);
   config = {
     type: 'bar',
     data: {
-      labels: interestLabels,
+      labels: riasecLabels,
       datasets: [
         {
           label: `${name}님의 점수`,
-          data: interestScores,
+          data: riasecScores,
           backgroundColor: 'rgba(54, 162, 235, 0.6)',
           borderColor: 'rgb(54, 162, 235)',
           borderWidth: 1,
@@ -71,7 +71,7 @@ async function renderCharts(dataPath, outDir) {
         },
         {
           label: '평균값',
-          data: interestNorm,
+          data: riasecNorm,
           backgroundColor: 'rgba(255, 99, 132, 0.4)',
           borderColor: 'rgb(255, 99, 132)',
           borderWidth: 1,
@@ -82,7 +82,7 @@ async function renderCharts(dataPath, outDir) {
     options: { scales: { y: { beginAtZero: true, max: 100 } } }
   };
   buffer = await canvas.renderToBuffer(config);
-  fs.writeFileSync(path.join(outDir, 'interest.png'), buffer);
+  fs.writeFileSync(path.join(outDir, 'riasec.png'), buffer);
 
   const valuesCodes = ['A','I','Rec','Rel','S','W'];
   const valuesLabels = ['능력발휘','자율성','보상','안정성','사회적 인정','워라밸'];
