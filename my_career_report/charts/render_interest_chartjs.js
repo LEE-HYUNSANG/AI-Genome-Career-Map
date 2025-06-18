@@ -5,31 +5,26 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-async function renderBig5(data, outputPath) {
+async function renderInterest(data, outputPath) {
   const width = 600;
   const height = 400;
   const chartJSNodeCanvas = new ChartJSNodeCanvas({ width, height });
-  const big5 = data.big5 || data;
+  const interest = data.interest || data;
   const configuration = {
-    type: 'polarArea',
+    type: 'radar',
     data: {
-      labels: ['E', 'A', 'C', 'N', 'O'],
+      labels: ['R', 'I', 'A', 'S', 'E', 'C'],
       datasets: [{
         label: 'Score',
-        data: ['E', 'A', 'C', 'N', 'O'].map(k => big5[k]),
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.5)',
-          'rgba(54, 162, 235, 0.5)',
-          'rgba(255, 206, 86, 0.5)',
-          'rgba(75, 192, 192, 0.5)',
-          'rgba(153, 102, 255, 0.5)'
-        ],
-        borderWidth: 1
+        data: ['R','I','A','S','E','C'].map(k => interest[k]),
+        backgroundColor: 'rgba(54, 162, 235, 0.3)',
+        borderColor: 'rgb(54, 162, 235)',
+        borderWidth: 2
       }]
     },
     options: {
       scales: { r: { beginAtZero: true, max: 100 } },
-      plugins: { title: { display: true, text: 'BIG-5 Scores' } }
+      plugins: { title: { display: true, text: 'RIASEC Interest' } }
     }
   };
   const buffer = await chartJSNodeCanvas.renderToBuffer(configuration);
@@ -40,8 +35,8 @@ async function renderBig5(data, outputPath) {
 async function main() {
   const dataPath = path.join(__dirname, '../data/sample_input.json');
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-  const out = path.join(__dirname, 'output/big5_chartjs.png');
-  await renderBig5(data, out);
+  const out = path.join(__dirname, 'output/interest_chartjs.png');
+  await renderInterest(data, out);
   console.log('Chart saved to', out);
 }
 

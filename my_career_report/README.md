@@ -42,6 +42,10 @@ To create a chart image with Chart.js on Node.js run:
 ```bash
 npm install
 node charts/render_big5_chartjs.js
+node charts/render_interest_chartjs.js
 ```
 
-This generates `charts/output/big5_chartjs.png` using the data from `data/sample_input.json`.
+These commands generate `charts/output/big5_chartjs.png` and
+`charts/output/interest_chartjs.png` using the data from
+`data/sample_input.json`. The BIG-5 chart is rendered as a **polar area**
+chart, while the RIASEC interest chart uses a **radar** chart.
