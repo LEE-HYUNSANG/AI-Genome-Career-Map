@@ -10,13 +10,15 @@ async function renderBig5(data, outputPath) {
   const height = 400;
   const chartJSNodeCanvas = new ChartJSNodeCanvas({ width, height });
   const big5 = data.big5 || data;
+  const LABEL_MAP = { E: '외향성', A: '친화성', C: '성실성', N: '신경성', O: '개방성' };
+  const codes = ['E', 'A', 'C', 'N', 'O'];
   const configuration = {
     type: 'polarArea',
     data: {
-      labels: ['E', 'A', 'C', 'N', 'O'],
+      labels: codes.map(c => LABEL_MAP[c]),
       datasets: [{
         label: 'Score',
-        data: ['E', 'A', 'C', 'N', 'O'].map(k => big5[k]),
+        data: codes.map(c => big5[c]),
         backgroundColor: [
           'rgba(255, 99, 132, 0.5)',
           'rgba(54, 162, 235, 0.5)',
