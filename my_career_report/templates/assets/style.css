@@ -69,3 +69,36 @@ img {
     .chart-canvas { display: none; }
     .chart-img { display: block; }
 }
+
+/* Page layout with header and footer */
+@page {
+    margin: 20mm;
+    @top-center {
+        content: "AI 기반 진로 탐색 및 역량 진단 결과 보고서";
+        font-family: 'NanumSquareRound Bold', sans-serif;
+        font-size: 12pt;
+        color: #666;
+    }
+    @bottom-center {
+        content: counter(page);
+        font-size: 10pt;
+        color: #666;
+    }
+}
+
+@page:first {
+    @top-center { content: normal; }
+    @bottom-center { content: normal; }
+}
+
+.cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.page-break {
+    page-break-after: always;
+}
