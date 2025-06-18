@@ -127,3 +127,10 @@ img {
 .insight-tip td:first-child {
     text-align: center;
 }
+
+/* Footnote styling */
+.footnote {
+    font-size: 0.8em;
+    color: #555;
+    margin-top: -8px;
+}
