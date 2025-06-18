@@ -17,8 +17,8 @@
   <h3>📈 BIG‐5 성향 그래프</h3>
   <canvas id="big5Chart" width="600" height="400"></canvas>
 
-  <details>
-    <summary>📊 1-1. 검사 결과</summary>
+  <section class="report-section">
+    <h3>📊 1-1. 검사 결과</h3>
     <table>
       <thead>
         <tr>
@@ -36,10 +36,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>💡 1-2. 인사이트 & Quick Tip</summary>
+  <section class="report-section">
+    <h3>💡 1-2. 인사이트 & Quick Tip</h3>
     <table>
       <thead>
         <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
@@ -54,10 +54,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>🚀 1-3. Profile Tagline & 주요 역할</summary>
+  <section class="report-section">
+    <h3>🚀 1-3. Profile Tagline & 주요 역할</h3>
     <p><strong>Tagline</strong>: {{ profile.big5.tagline }}</p>
     <blockquote>{{ profile.big5.summary }}</blockquote>
     <ul>
@@ -65,10 +65,10 @@
       <li>🎯 <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
       {% endfor %}
     </ul>
-  </details>
+  </section>
 
-  <details>
-    <summary>🎯 1-4. 커리어 매칭 (BIG-5 기반)</summary>
+  <section class="report-section">
+    <h3>🎯 1-4. 커리어 매칭 (BIG-5 기반)</h3>
     <table>
       <thead>
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
@@ -83,25 +83,25 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚙️ 1-5. 성장 포인트 3가지</summary>
+  <section class="report-section">
+    <h3>⚙️ 1-5. 성장 포인트 3가지</h3>
     <ol>
       {% for g in growth.big5 %}
       <li><strong>{{ g.title }}</strong> — {{ g.desc }}</li>
       {% endfor %}
     </ol>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚠️ 1-6. 리스크 관리 3가지</summary>
+  <section class="report-section">
+    <h3>⚠️ 1-6. 리스크 관리 3가지</h3>
     <ol>
       {% for r in risk.big5 %}
       <li><strong>{{ r.title }}</strong> — {{ r.desc }}</li>
       {% endfor %}
     </ol>
-  </details>
+  </section>
 
   <hr/>
 
@@ -110,8 +110,8 @@
   <h3>📈 직무 관심사 그래프</h3>
   <canvas id="interestChart" width="600" height="400"></canvas>
 
-  <details>
-    <summary>📊 2-1. 검사 결과</summary>
+  <section class="report-section">
+    <h3>📊 2-1. 검사 결과</h3>
     <table>
       <thead>
         <tr><th>관심도 타입</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
@@ -127,10 +127,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>💡 2-2. 인사이트 & Quick Tip</summary>
+  <section class="report-section">
+    <h3>💡 2-2. 인사이트 & Quick Tip</h3>
     <table>
       <thead>
         <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
@@ -145,10 +145,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>🚀 2-3. Profile Tagline & 주요 역할</summary>
+  <section class="report-section">
+    <h3>🚀 2-3. Profile Tagline & 주요 역할</h3>
     <p><strong>Tagline</strong>: {{ profile.interest.tagline }}</p>
     <blockquote>{{ profile.interest.summary }}</blockquote>
     <ul>
@@ -156,10 +156,10 @@
       <li>🎯 <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
       {% endfor %}
     </ul>
-  </details>
+  </section>
 
-  <details>
-    <summary>🎯 2-4. 커리어 매칭 (RIASEC 기반)</summary>
+  <section class="report-section">
+    <h3>🎯 2-4. 커리어 매칭 (RIASEC 기반)</h3>
     <table>
       <thead>
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
@@ -174,25 +174,25 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚙️ 2-5. 성장 포인트 3가지</summary>
+  <section class="report-section">
+    <h3>⚙️ 2-5. 성장 포인트 3가지</h3>
     <ol>
       {% for g in growth.interest %}
       <li><strong>{{ g.title }}</strong> — {{ g.desc }}</li>
       {% endfor %}
     </ol>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚠️ 2-6. 리스크 관리 3가지</summary>
+  <section class="report-section">
+    <h3>⚠️ 2-6. 리스크 관리 3가지</h3>
     <ol>
       {% for r in risk.interest %}
       <li><strong>{{ r.title }}</strong> — {{ r.desc }}</li>
       {% endfor %}
     </ol>
-  </details>
+  </section>
 
   <hr/>
 
@@ -201,8 +201,8 @@
   <h3>📈 직업 가치관 그래프</h3>
   <canvas id="valuesChart" width="600" height="400"></canvas>
 
-  <details>
-    <summary>📊 3-1. 검사 결과</summary>
+  <section class="report-section">
+    <h3>📊 3-1. 검사 결과</h3>
     <table>
       <thead>
         <tr><th>관심도 타입</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
@@ -218,10 +218,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>💡 3-2. 인사이트 & Quick Tip</summary>
+  <section class="report-section">
+    <h3>💡 3-2. 인사이트 & Quick Tip</h3>
     <table>
       <thead>
         <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
@@ -236,10 +236,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>🚀 3-3. Profile Tagline & 주요 역할</summary>
+  <section class="report-section">
+    <h3>🚀 3-3. Profile Tagline & 주요 역할</h3>
     <p><strong>Tagline</strong>: {{ profile.values.tagline }}</p>
     <blockquote>{{ profile.values.summary }}</blockquote>
     <ul>
@@ -247,10 +247,10 @@
       <li>🎯 <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
       {% endfor %}
     </ul>
-  </details>
+  </section>
 
-  <details>
-    <summary>🎯 3-4. 커리어 매칭 (직업 가치관 기반)</summary>
+  <section class="report-section">
+    <h3>🎯 3-4. 커리어 매칭 (직업 가치관 기반)</h3>
     <table>
       <thead>
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
@@ -265,25 +265,25 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚙️ 3-5. 성장 포인트 3가지</summary>
+  <section class="report-section">
+    <h3>⚙️ 3-5. 성장 포인트 3가지</h3>
     <ol>
       {% for g in growth['values'] %}
       <li><strong>{{ g.title }}</strong> — {{ g.desc }}</li>
       {% endfor %}
     </ol>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚠️ 3-6. 리스크 관리 3가지</summary>
+  <section class="report-section">
+    <h3>⚠️ 3-6. 리스크 관리 3가지</h3>
     <ol>
       {% for r in risk['values'] %}
       <li><strong>{{ r.title }}</strong> — {{ r.desc }}</li>
       {% endfor %}
     </ol>
-  </details>
+  </section>
 
   <hr/>
 
@@ -292,8 +292,8 @@
   <h3>📈 AI 활용능력 그래프</h3>
   <canvas id="aiChart" width="600" height="400"></canvas>
 
-  <details>
-    <summary>📊 4-1. 검사 결과</summary>
+  <section class="report-section">
+    <h3>📊 4-1. 검사 결과</h3>
     <table>
       <thead>
         <tr><th>역량 영역</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
@@ -309,10 +309,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>💡 4-2. 인사이트 & Quick Tip</summary>
+  <section class="report-section">
+    <h3>💡 4-2. 인사이트 & Quick Tip</h3>
     <table>
       <thead>
         <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
@@ -327,10 +327,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>🚀 4-3. Profile Tagline & 주요 역할</summary>
+  <section class="report-section">
+    <h3>🚀 4-3. Profile Tagline & 주요 역할</h3>
     <p><strong>Tagline</strong>: {{ profile.ai.tagline }}</p>
     <blockquote>{{ profile.ai.summary }}</blockquote>
     <ul>
@@ -338,10 +338,10 @@
       <li>🤖 <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
       {% endfor %}
     </ul>
-  </details>
+  </section>
 
-  <details>
-    <summary>🎯 4-4. 커리어 매칭 (AI 활용능력 기반)</summary>
+  <section class="report-section">
+    <h3>🎯 4-4. 커리어 매칭 (AI 활용능력 기반)</h3>
     <table>
       <thead>
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
@@ -356,25 +356,25 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚙️ 4-5. 성장 포인트 3가지</summary>
+  <section class="report-section">
+    <h3>⚙️ 4-5. 성장 포인트 3가지</h3>
     <ol>
       {% for g in growth.ai %}
       <li><strong>{{ g.title }}</strong> — {{ g.desc }}</li>
       {% endfor %}
     </ol>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚠️ 4-6. 리스크 관리 3가지</summary>
+  <section class="report-section">
+    <h3>⚠️ 4-6. 리스크 관리 3가지</h3>
     <ol>
       {% for r in risk.ai %}
       <li><strong>{{ r.title }}</strong> — {{ r.desc }}</li>
       {% endfor %}
     </ol>
-  </details>
+  </section>
 
   <hr/>
 
@@ -383,8 +383,8 @@
   <h3>📈 기술 역량 그래프</h3>
   <canvas id="techChart" width="600" height="400"></canvas>
 
-  <details>
-    <summary>📊 5-1. 검사 결과</summary>
+  <section class="report-section">
+    <h3>📊 5-1. 검사 결과</h3>
     <table>
       <thead>
         <tr><th>핵심 역량</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
@@ -400,10 +400,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>💡 5-2. 인사이트 & Quick Tip</summary>
+  <section class="report-section">
+    <h3>💡 5-2. 인사이트 & Quick Tip</h3>
     <table>
       <thead>
         <tr><th>역량</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
@@ -418,10 +418,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>🚀 5-3. Profile Tagline & 주요 역할</summary>
+  <section class="report-section">
+    <h3>🚀 5-3. Profile Tagline & 주요 역할</h3>
     <p><strong>Tagline</strong>: {{ profile.tech.tagline }}</p>
     <blockquote>{{ profile.tech.summary }}</blockquote>
     <ul>
@@ -429,10 +429,10 @@
       <li>🛠️ <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
       {% endfor %}
     </ul>
-  </details>
+  </section>
 
-  <details>
-    <summary>🎯 5-4. 커리어 매칭 (핵심 역량 기반)</summary>
+  <section class="report-section">
+    <h3>🎯 5-4. 커리어 매칭 (핵심 역량 기반)</h3>
     <table>
       <thead>
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
@@ -447,25 +447,25 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚙️ 5-5. 성장 포인트 3가지</summary>
+  <section class="report-section">
+    <h3>⚙️ 5-5. 성장 포인트 3가지</h3>
     <ol>  
       {% for g in growth.tech %}  
       <li><strong>{{ g.title }}</strong> — {{ g.desc }}</li>  
       {% endfor %}  
     </ol>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚠️ 5-6. 리스크 관리 3가지</summary>
+  <section class="report-section">
+    <h3>⚠️ 5-6. 리스크 관리 3가지</h3>
     <ol>  
       {% for r in risk.tech %}  
       <li><strong>{{ r.title }}</strong> — {{ r.desc }}</li>  
       {% endfor %}  
     </ol>
-  </details>
+  </section>
 
   <hr/>
 
@@ -474,8 +474,8 @@
   <h3>📈 소프트 스킬 그래프</h3>
   <canvas id="softChart" width="600" height="400"></canvas>
 
-  <details>
-    <summary>📊 6-1. 검사 결과</summary>
+  <section class="report-section">
+    <h3>📊 6-1. 검사 결과</h3>
     <table>
       <thead>  
         <tr><th>역량 항목</th><th>Your Score</th></tr>  
@@ -489,10 +489,10 @@
         {% endfor %}  
       </tbody>  
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>💡 6-2. 인사이트 & Quick Tip</summary>
+  <section class="report-section">
+    <h3>💡 6-2. 인사이트 & Quick Tip</h3>
     <table>  
       <thead>  
         <tr><th>역량</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>  
@@ -507,10 +507,10 @@
         {% endfor %}  
       </tbody>  
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>🚀 6-3. Profile Tagline & 주요 역할</summary>
+  <section class="report-section">
+    <h3>🚀 6-3. Profile Tagline & 주요 역할</h3>
     <p><strong>Tagline</strong>: {{ profile.soft.tagline }}</p>
     <blockquote>{{ profile.soft.summary }}</blockquote>
     <ul>
@@ -518,10 +518,10 @@
       <li>⚙️ <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
       {% endfor %}
     </ul>
-  </details>
+  </section>
 
-  <details>
-    <summary>🎯 6-4. 커리어 매칭 (비즈니스·소프트 스킬 기반)</summary>
+  <section class="report-section">
+    <h3>🎯 6-4. 커리어 매칭 (비즈니스·소프트 스킬 기반)</h3>
     <table>
       <thead>
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
@@ -536,38 +536,38 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚙️ 6-5. 성장 포인트 3가지</summary>
+  <section class="report-section">
+    <h3>⚙️ 6-5. 성장 포인트 3가지</h3>
     <ol>  
       {% for g in growth.soft %}  
       <li><strong>{{ g.title }}</strong> — {{ g.desc }}</li>  
       {% endfor %}  
     </ol>
-  </details>
+  </section>
 
-  <details>
-    <summary>⚠️ 6-6. 리스크 관리 3가지</summary>
+  <section class="report-section">
+    <h3>⚠️ 6-6. 리스크 관리 3가지</h3>
     <ol>  
       {% for r in risk.soft %}  
       <li><strong>{{ r.title }}</strong> — {{ r.desc }}</li>  
       {% endfor %}  
     </ol>
-  </details>
+  </section>
 
   <hr/>
 
   <!-- Ⅶ. Recommendations & 제언 -->
   <h2>Ⅶ. Recommendations & 제언</h2>
 
-  <details>
-    <summary>💬 7-1. 맞춤형 명언</summary>
+  <section class="report-section">
+    <h3>💬 7-1. 맞춤형 명언</h3>
     <blockquote>“{{ quote }}”</blockquote>
-  </details>
+  </section>
 
-  <details>
-    <summary>🏅 7-2. 추천 직무 (Top 10)</summary>
+  <section class="report-section">
+    <h3>🏅 7-2. 추천 직무 (Top 10)</h3>
     <table>
       <thead>
         <tr><th>순위</th><th>추천 직무</th><th>추천 사유</th><th>팁</th></tr>
@@ -583,10 +583,10 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
-  <details>
-    <summary>🤖 7-3. AI 관련 신직무 추천 (Top 5)</summary>
+  <section class="report-section">
+    <h3>🤖 7-3. AI 관련 신직무 추천 (Top 5)</h3>
     <table>
       <thead>
         <tr><th>순위</th><th>직무</th><th>사유</th><th>팁</th></tr>
@@ -602,14 +602,14 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
   <hr/>
 
   <!-- Ⅷ. 진로 로드맵 Career Roadmap -->
   <h2>Ⅷ. 진로 로드맵 Career Roadmap</h2>
-  <details>
-    <summary>🛣️ 단계별 로드맵</summary>
+  <section class="report-section">
+    <h3>🛣️ 단계별 로드맵</h3>
     <table>
       <thead>
         <tr><th>단계</th><th>기간</th><th>목표 Milestone</th><th>주요 액션 플랜</th></tr>
@@ -625,15 +625,15 @@
         {% endfor %}
       </tbody>
     </table>
-  </details>
+  </section>
 
   <hr/>
 
   <!-- Ⅸ. 종합 결과: SWOT & 전략 -->
   <h2>Ⅸ. 종합 결과: SWOT & 전략</h2>
 
-  <details>
-    <summary>🔍 9-1. SWOT 분석</summary>
+  <section class="report-section">
+    <h3>🔍 9-1. SWOT 분석</h3>
     <h4>강점</h4>
     <ul>
       {% for s in swot.strengths %}<li>{{ s }}</li>{% endfor %}
@@ -650,10 +650,10 @@
     <ul>
       {% for t in swot.threats %}<li>{{ t }}</li>{% endfor %}
     </ul>
-  </details>
+  </section>
 
-  <details>
-    <summary>🎯 9-2. SWOT 전략</summary>
+  <section class="report-section">
+    <h3>🎯 9-2. SWOT 전략</h3>
     <h4>SO 전략</h4>
     <ol>{% for s in swotStrategies.SO %}<li>{{ s }}</li>{% endfor %}</ol>
     <h4>WO 전략</h4>
@@ -662,7 +662,7 @@
     <ol>{% for s in swotStrategies.ST %}<li>{{ s }}</li>{% endfor %}</ol>
     <h4>WT 전략</h4>
     <ol>{% for s in swotStrategies.WT %}<li>{{ s }}</li>{% endfor %}</ol>
-  </details>
+  </section>
 
   <!-- Chart data as JSON to avoid JS warnings -->
   <script id="report-data" type="application/json">
