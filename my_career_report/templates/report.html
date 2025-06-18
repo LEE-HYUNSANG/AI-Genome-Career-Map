@@ -20,8 +20,8 @@
   <h2>Ⅰ. 개인성향 BIG5 요인 분석</h2>
   {% set factor_labels = {"E":"외향성","A":"친화성","C":"성실성","N":"신경성","O":"개방성"} %}
   <h3>📈 BIG‐5 성향 그래프</h3>
-  <canvas id="big5Chart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="{{ charts.images.big5 }}" class="chart-img" width="600" height="400" alt="BIG-5 chart"/>
+  <canvas id="big5Chart" class="chart-canvas" width="300" height="200"></canvas>
+  <img src="{{ charts.images.big5 }}" class="chart-img" width="300" height="200" alt="BIG-5 chart"/>
 
   <section class="report-section">
     <h3>📊 1-1. 검사 결과</h3>
@@ -711,7 +711,7 @@
         { label: 'Global Norm', data: big5Norm, backgroundColor: 'rgba(255, 99, 132, 0.1)', borderColor: 'rgb(255, 99, 132)', borderWidth: 2 }
       ]
     },
-    options: { scales: { r: { beginAtZero: true, max:100 } } }
+    options: { responsive: false, scales: { r: { beginAtZero: true, max:100 } } }
   });
 
     // Ⅱ. 직무 관심사 차트
