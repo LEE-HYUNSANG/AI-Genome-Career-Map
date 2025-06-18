@@ -50,12 +50,12 @@
     <h3>💡 1-2. 인사이트 & Quick Tip</h3>
     <table class="insight-tip">
       <thead>
-        <tr><th>직업가치관</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
+        <tr><th>Big-5 요인</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
       </thead>
       <tbody>
         {% for factor in ["E","A","C","N","O"] %}
         <tr>
-          <td>{{ factor_labels[factor] }} (Δ={{ (big5[factor] - big5_norm[factor])|round(1) }})</td>
+          <td>{{ factor_labels[factor] }}</td>
           <td>{{ insight[factor] }}</td>
           <td>{{ tip[factor] }}</td>
         </tr>
@@ -150,7 +150,7 @@
     <h3>💡 2-2. 인사이트 & Quick Tip</h3>
     <table class="insight-tip">
       <thead>
-        <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
+        <tr><th>직무 관심사</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
       </thead>
       <tbody>
         {% for t in ["R","I","A","S","E","C"] %}
@@ -256,8 +256,8 @@
         {% for k in ["A","I","Rec","Rel","S","W"] %}
         <tr>
           <td>{{ values_labels[k] }}</td>
-          <td>{{ insight.values[k] }}</td>
-          <td>{{ tip.values[k] }}</td>
+          <td>{{ insight['values'][k] }}</td>
+          <td>{{ tip['values'][k] }}</td>
         </tr>
         {% endfor %}
       </tbody>
