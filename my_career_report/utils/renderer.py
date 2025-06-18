@@ -30,7 +30,12 @@ def render_html(data: dict, cfg: dict) -> str:
         }
         charts_cfg['images'] = rel_images
 
-    html = template.render(**data, styles=styles, charts=charts_cfg)
+    scripts_cfg = dict(cfg.get('scripts', {}))
+    if 'chartjs' in scripts_cfg:
+        rel_script = os.path.relpath(scripts_cfg['chartjs'], start=os.path.dirname(cfg['output']['html']))
+        scripts_cfg['chartjs'] = rel_script
+
+    html = template.render(**data, styles=styles, charts=charts_cfg, scripts=scripts_cfg)
     output_path = cfg['output']['html']
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:

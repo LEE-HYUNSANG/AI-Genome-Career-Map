@@ -10,6 +10,7 @@ from utils.rounder import round_floats
 from charts.chartjs_data import generate_chartjs_data
 import json
 import subprocess
+import shutil
 
 BASE_DIR = os.path.dirname(__file__)
 CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
@@ -43,6 +44,12 @@ def main():
     data = round_floats(data, 1)
 
     os.makedirs(os.path.join(BASE_DIR, 'dist'), exist_ok=True)
+
+    # Copy a local copy of Chart.js so the report works offline
+    chartjs_src = os.path.join(BASE_DIR, 'node_modules', 'chart.js', 'dist', 'chart.umd.js')
+    chartjs_dest = os.path.join(os.path.dirname(cfg['output']['html']), 'chart.js')
+    shutil.copy2(chartjs_src, chartjs_dest)
+    cfg['scripts'] = {'chartjs': chartjs_dest}
 
     # Create static chart images for the PDF using Chart.js
     chart_data_tmp = os.path.join(chart_dir, 'chartjs_input.json')
