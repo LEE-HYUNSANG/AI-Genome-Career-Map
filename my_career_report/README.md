@@ -24,6 +24,14 @@ If you see an error about `chartjs-plugin-datalabels` not being found,
 make sure the Node.js dependencies were installed by running `npm install`
 in the `my_career_report` directory.
 
+### chartjs-node-canvas dependencies
+
+The `chartjs-node-canvas` package uses the [`canvas`](https://github.com/Automattic/node-canvas) module.
+Building this module requires native libraries such as **Cairo** and **Pango**
+on Linux or the **Windows Build Tools** on Windows.
+Refer to the [node-canvas installation guide](https://github.com/Automattic/node-canvas#installation)
+for full setup instructions if you encounter build errors.
+
 ### Korean fonts
 
 The charts rely on the **Noto Sans CJK** fonts that ship with most Linux
