@@ -116,6 +116,24 @@ img {
     text-align: right;
 }
 
+/* Alignment and layout for interest results table */
+.interest-results {
+    table-layout: fixed;
+}
+.interest-results th,
+.interest-results td {
+    width: 25%;
+}
+.interest-results th {
+    text-align: center;
+}
+.interest-results td:first-child {
+    text-align: center;
+}
+.interest-results td:not(:first-child) {
+    text-align: right;
+}
+
 /* Alignment for BIG-5 career table */
 .big5-career th:first-child,
 .big5-career td:first-child {
