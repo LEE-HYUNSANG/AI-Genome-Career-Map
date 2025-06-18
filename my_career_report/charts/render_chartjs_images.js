@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 async function renderCharts(dataPath, outDir) {
   const width = 600;
   const height = 400;
-  const canvas = new ChartJSNodeCanvas({ width, height });
+  const canvas = new ChartJSNodeCanvas({ width, height, chartCallback: (Chart) => { Chart.defaults.font.size = 24; } });
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   fs.mkdirSync(outDir, { recursive: true });
 
