@@ -34,3 +34,14 @@ MSYS2 packages will resolve the issue.
 ## Continuous Integration
 
 The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies and runs `generate_report.py` on each push. The generated PDF is uploaded as a workflow artifact.
+
+## Chart.js Image Rendering
+
+To create a chart image with Chart.js on Node.js run:
+
+```bash
+npm install
+node charts/render_big5_chartjs.js
+```
+
+This generates `charts/output/big5_chartjs.png` using the data from `data/sample_input.json`.
