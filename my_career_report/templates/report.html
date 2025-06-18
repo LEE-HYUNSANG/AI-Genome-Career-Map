@@ -122,23 +122,23 @@
   <!-- Ⅱ. 직무 관심사 분석 -->
   <h2>Ⅱ. 직무 관심사 분석</h2>
   <h3>📈 직무 관심사 그래프</h3>
-  <canvas id="interestChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="{{ charts.images.interest }}" class="chart-img" width="600" height="400" alt="Interest chart"/>
-  {% set interest_labels = {"R":"현실형","I":"탐구형","A":"예술형","S":"사회형","E":"진취형","C":"관습형"} %}
+  <canvas id="riasecChart" class="chart-canvas" width="600" height="400"></canvas>
+  <img src="{{ charts.images.riasec }}" class="chart-img" width="600" height="400" alt="RIASEC chart"/>
+  {% set riasec_labels = {"R":"현실형","I":"탐구형","A":"예술형","S":"사회형","E":"진취형","C":"관습형"} %}
 
   <section class="report-section">
     <h3>📊 2-1. 검사 결과</h3>
-    <table class="insight-tip interest-results">
+    <table class="insight-tip riasec-results">
       <thead>
         <tr><th>직무 관심사</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for t in ["R","I","A","S","E","C"] %}
         <tr>
-          <td>{{ interest_labels[t] }}</td>
-          <td>{{ interest[t]|round(1) }}</td>
-          <td>{{ interest_norm[t]|round(1) }}</td>
-          <td>{{ (interest[t] - interest_norm[t])|round(1) }}</td>
+          <td>{{ riasec_labels[t] }}</td>
+          <td>{{ riasec[t]|round(1) }}</td>
+          <td>{{ riasec_norm[t]|round(1) }}</td>
+          <td>{{ (riasec[t] - riasec_norm[t])|round(1) }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -155,9 +155,9 @@
       <tbody>
         {% for t in ["R","I","A","S","E","C"] %}
         <tr>
-          <td>{{ interest_labels[t] }}</td>
-          <td>{{ insight.interest[t] }}</td>
-          <td>{{ tip.interest[t] }}</td>
+          <td>{{ riasec_labels[t] }}</td>
+          <td>{{ insight.riasec[t] }}</td>
+          <td>{{ tip.riasec[t] }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -166,10 +166,10 @@
 
   <section class="report-section">
     <h3>🚀 2-3. Profile Tagline & 주요 역할</h3>
-    <p><strong>Tagline</strong>: {{ profile.interest.tagline }}</p>
-    <blockquote>{{ profile.interest.summary }}</blockquote>
+    <p><strong>Tagline</strong>: {{ profile.riasec.tagline }}</p>
+    <blockquote>{{ profile.riasec.summary }}</blockquote>
     <ul>
-      {% for r in role.interest %}
+      {% for r in role.riasec %}
       <li>🎯 <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
       {% endfor %}
     </ul>
@@ -182,12 +182,12 @@
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
       </thead>
       <tbody>
-        {% for c in career.interest %}
+        {% for c in career.riasec %}
         <tr>
           <td>
             <strong>
               {% for code in c.combo.split('+') %}
-                {{ interest_labels[code] }}{% if not loop.last %} + {% endif %}
+                {{ riasec_labels[code] }}{% if not loop.last %} + {% endif %}
               {% endfor %}
             </strong>
           </td>
@@ -202,7 +202,7 @@
   <section class="report-section">
     <h3>⚙️ 2-5. 성장 포인트 3가지</h3>
     <ol>
-      {% for g in growth.interest %}
+      {% for g in growth.riasec %}
       <li><strong>{{ g.title }}</strong> — {{ g.desc }}</li>
       {% endfor %}
     </ol>
@@ -211,7 +211,7 @@
   <section class="report-section">
     <h3>⚠️ 2-6. 리스크 관리 3가지</h3>
     <ol>
-      {% for r in risk.interest %}
+      {% for r in risk.riasec %}
       <li><strong>{{ r.title }}</strong> — {{ r.desc }}</li>
       {% endfor %}
     </ol>
@@ -709,8 +709,8 @@
   {
     "big5": {{ big5 | tojson }},
     "big5_norm": {{ big5_norm | tojson }},
-    "interest": {{ interest | tojson }},
-    "interest_norm": {{ interest_norm | tojson }},
+    "riasec": {{ riasec | tojson }},
+    "riasec_norm": {{ riasec_norm | tojson }},
     "values": {{ values | tojson }},
     "values_norm": {{ values_norm | tojson }},
     "ai": {{ ai | tojson }},
@@ -750,17 +750,17 @@
   });
 
     // Ⅱ. 직무 관심사 차트
-    const interestCodes = ['R','I','A','S','E','C'];
-    const interestLabels = ["현실형","탐구형","예술형","사회형","기업형","관습형"];
-    const interestScores = interestCodes.map(k => data.interest[k]);
-    const interestNorm = interestCodes.map(k => data.interest_norm[k]);
-  new Chart(document.getElementById("interestChart"), {
+    const riasecCodes = ['R','I','A','S','E','C'];
+    const riasecLabels = ["현실형","탐구형","예술형","사회형","기업형","관습형"];
+    const riasecScores = riasecCodes.map(k => data.riasec[k]);
+    const riasecNorm = riasecCodes.map(k => data.riasec_norm[k]);
+  new Chart(document.getElementById("riasecChart"), {
     type: 'bar',
     data: {
-      labels: interestLabels,
+      labels: riasecLabels,
       datasets: [
-        { label: '{{ name }}님의 점수', data: interestScores, backgroundColor: 'rgba(54, 162, 235, 0.6)', borderColor: 'rgb(54, 162, 235)', borderWidth: 1, borderRadius: 10 },
-        { label: '평균값', data: interestNorm, backgroundColor: 'rgba(255, 99, 132, 0.4)', borderColor: 'rgb(255, 99, 132)', borderWidth: 1, borderRadius: 10 }
+        { label: '{{ name }}님의 점수', data: riasecScores, backgroundColor: 'rgba(54, 162, 235, 0.6)', borderColor: 'rgb(54, 162, 235)', borderWidth: 1, borderRadius: 10 },
+        { label: '평균값', data: riasecNorm, backgroundColor: 'rgba(255, 99, 132, 0.4)', borderColor: 'rgb(255, 99, 132)', borderWidth: 1, borderRadius: 10 }
       ]
     },
     options: { scales: { y: { beginAtZero: true, max:100 } } }

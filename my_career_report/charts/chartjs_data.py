@@ -8,8 +8,8 @@ def generate_chartjs_data(data: Dict[str, Any], output_path: str) -> str:
     dataset = {
         "big5": data.get("big5", {}),
         "big5_norm": data.get("big5_norm", {}),
-        "interest": data.get("interest", {}),
-        "interest_norm": data.get("interest_norm", {}),
+        "riasec": data.get("riasec", {}),
+        "riasec_norm": data.get("riasec_norm", {}),
         "values": data.get("values", {}),
         "values_norm": data.get("values_norm", {}),
         "ai": data.get("ai", {}),
