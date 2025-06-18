@@ -124,17 +124,18 @@
   <h3>📈 직무 관심사 그래프</h3>
   <canvas id="interestChart" class="chart-canvas" width="600" height="400"></canvas>
   <img src="{{ charts.images.interest }}" class="chart-img" width="600" height="400" alt="Interest chart"/>
+  {% set interest_labels = {"R":"현실형","I":"탐구형","A":"예술형","S":"사회형","E":"진취형","C":"관습형"} %}
 
   <section class="report-section">
     <h3>📊 2-1. 검사 결과</h3>
-    <table class="insight-tip">
+    <table class="insight-tip interest-results">
       <thead>
-        <tr><th>관심도 타입</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
+        <tr><th>직무 관심사</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for t in ["R","I","A","S","E","C"] %}
         <tr>
-          <td>{{ t }}</td>
+          <td>{{ interest_labels[t] }}</td>
           <td>{{ interest[t]|round(1) }}</td>
           <td>{{ interest_norm[t]|round(1) }}</td>
           <td>{{ (interest[t] - interest_norm[t])|round(1) }}</td>
@@ -154,7 +155,7 @@
       <tbody>
         {% for t in ["R","I","A","S","E","C"] %}
         <tr>
-          <td>{{ t }} (Δ={{ (interest[t] - interest_norm[t])|round(1) }})</td>
+          <td>{{ interest_labels[t] }}</td>
           <td>{{ insight.interest[t] }}</td>
           <td>{{ tip.interest[t] }}</td>
         </tr>
@@ -183,7 +184,13 @@
       <tbody>
         {% for c in career.interest %}
         <tr>
-          <td><strong>{{ c.combo }}</strong><br/>({{ c.scores }})</td>
+          <td>
+            <strong>
+              {% for code in c.combo.split('+') %}
+                {{ interest_labels[code] }}{% if not loop.last %} + {% endif %}
+              {% endfor %}
+            </strong>
+          </td>
           <td>{{ c.job }}</td>
           <td>{{ c.reason }}</td>
         </tr>
