@@ -96,6 +96,7 @@ def main():
         json.dump(data, f, ensure_ascii=False)
     node_script = os.path.join(BASE_DIR, 'charts', 'render_chartjs_images.js')
     subprocess.run(['node', node_script, chart_data_tmp, chart_dir], check=True)
+    print(f"Chart images saved to {chart_dir}")
 
     generate_chartjs_data(data, cfg['charts']['data'])
 
