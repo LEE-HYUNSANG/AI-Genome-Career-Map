@@ -767,11 +767,20 @@
   const aiCodes = ['EU','TS','CE','AO','SE','CB','ER'];
   const aiLabels = ["AI 이해","프롬프트","검증","도구 적용","학습","협업","윤리"];
   const aiScores = aiCodes.map(k => data.ai[k]);
+  const aiColors = [
+    'rgba(255, 99, 132, 0.6)',  // EU
+    'rgba(255, 159, 64, 0.6)',  // TS
+    'rgba(255, 205, 86, 0.6)',  // CE
+    'rgba(75, 192, 192, 0.6)',  // AO
+    'rgba(54, 162, 235, 0.6)',  // SE
+    'rgba(153, 102, 255, 0.6)', // CB
+    'rgba(201, 203, 207, 0.6)'  // ER
+  ];
   new Chart(document.getElementById("aiChart"), {
     type: 'polarArea',
     data: {
       labels: aiLabels,
-      datasets: [{ data: aiScores, backgroundColor: aiCodes.map(() => 'rgba(54, 162, 235, 0.6)') }]
+      datasets: [{ data: aiScores, backgroundColor: aiColors }]
     },
     options: {
       scales: { r: { beginAtZero: true, max:100 } },
