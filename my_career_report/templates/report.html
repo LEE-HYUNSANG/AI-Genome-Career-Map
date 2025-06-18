@@ -224,17 +224,18 @@
   <h3>📈 직업 가치관 그래프</h3>
   <canvas id="valuesChart" class="chart-canvas" width="600" height="400"></canvas>
   <img src="{{ charts.images['values'] }}" class="chart-img" width="600" height="400" alt="Values chart"/>
+  {% set values_labels = {"A":"능력발휘","I":"자율성","Rec":"보상","Rel":"안정성","S":"사회적 인정","W":"워라밸"} %}
 
   <section class="report-section">
     <h3>📊 3-1. 검사 결과</h3>
-    <table class="insight-tip">
+    <table class="insight-tip values-results">
       <thead>
-        <tr><th>관심도 타입</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
+        <tr><th>직업가치관</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for k in ["A","I","Rec","Rel","S","W"] %}
         <tr>
-          <td>{{ k }}</td>
+          <td>{{ values_labels[k] }}</td>
           <td>{{ values[k]|round(1) }}</td>
           <td>{{ values_norm[k]|round(1) }}</td>
           <td>{{ (values[k] - values_norm[k])|round(1) }}</td>
@@ -254,7 +255,7 @@
       <tbody>
         {% for k in ["A","I","Rec","Rel","S","W"] %}
         <tr>
-          <td>{{ k }} (Δ={{ (values[k] - values_norm[k])|round(1) }})</td>
+          <td>{{ values_labels[k] }} (Δ={{ (values[k] - values_norm[k])|round(1) }})</td>
           <td>{{ insight.values[k] }}</td>
           <td>{{ tip.values[k] }}</td>
         </tr>
@@ -283,7 +284,13 @@
       <tbody>
         {% for c in career['values'] %}
         <tr>
-          <td><strong>{{ c.combo }}</strong><br/>({{ c.scores }})</td>
+          <td>
+            <strong>
+              {% for code in c.combo.split('+') %}
+                {{ values_labels[code]|default(code) }}{% if not loop.last %}+{% endif %}
+              {% endfor %}
+            </strong><br/>({{ c.scores }})
+          </td>
           <td>{{ c.job }}</td>
           <td>{{ c.reason }}</td>
         </tr>
@@ -317,17 +324,18 @@
   <h3>📈 AI 활용능력 그래프</h3>
   <canvas id="aiChart" class="chart-canvas" width="600" height="400"></canvas>
   <img src="{{ charts.images.ai }}" class="chart-img" width="600" height="400" alt="AI chart"/>
+  {% set ai_labels = {"EU":"AI 이해","TS":"프롬프트","CE":"검증","AO":"도구 적용","SE":"학습","CB":"협업","ER":"윤리"} %}
 
   <section class="report-section">
     <h3>📊 4-1. 검사 결과</h3>
-    <table>
+    <table class="ai-results">
       <thead>
         <tr><th>역량 영역</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for k in ["EU","TS","CE","AO","SE","CB","ER"] %}
         <tr>
-          <td>{{ k }}</td>
+          <td>{{ ai_labels[k] }}</td>
           <td>{{ ai[k]|round(1) }}</td>
           <td>{{ ai_norm[k]|round(1) }}</td>
           <td>{{ (ai[k] - ai_norm[k])|round(1) }}</td>
@@ -340,14 +348,14 @@
 
   <section class="report-section">
     <h3>💡 4-2. 인사이트 & Quick Tip</h3>
-    <table>
+    <table class="tech-insight">
       <thead>
         <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
       </thead>
       <tbody>
         {% for k in ["EU","TS","CE","AO","SE","CB","ER"] %}
         <tr>
-          <td>{{ k }} (Δ={{ (ai[k] - ai_norm[k])|round(1) }})</td>
+          <td>{{ ai_labels[k] }} (Δ={{ (ai[k] - ai_norm[k])|round(1) }})</td>
           <td>{{ insight.ai[k] }}</td>
           <td>{{ tip.ai[k] }}</td>
         </tr>
@@ -376,7 +384,13 @@
       <tbody>
         {% for c in career.ai %}
         <tr>
-          <td><strong>{{ c.combo }}</strong><br/>({{ c.scores }})</td>
+          <td>
+            <strong>
+              {% for code in c.combo.split('+') %}
+                {{ ai_labels[code]|default(code) }}{% if not loop.last %}+{% endif %}
+              {% endfor %}
+            </strong><br/>({{ c.scores }})
+          </td>
           <td>{{ c.job }}</td>
           <td>{{ c.reason }}</td>
         </tr>
@@ -413,7 +427,7 @@
 
   <section class="report-section">
     <h3>📊 5-1. 검사 결과</h3>
-    <table>
+    <table class="tech-results">
       <thead>
         <tr><th>핵심 역량</th><th>{{ name }}님의 점수</th></tr>
       </thead>
@@ -430,7 +444,7 @@
 
   <section class="report-section">
     <h3>💡 5-2. 인사이트 & Quick Tip</h3>
-    <table>
+    <table class="tech-insight">
       <thead>
         <tr><th>역량</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
       </thead>
@@ -503,7 +517,7 @@
 
   <section class="report-section">
     <h3>📊 6-1. 검사 결과</h3>
-    <table>
+    <table class="soft-results">
       <thead>  
         <tr><th>역량 항목</th><th>{{ name }}님의 점수</th></tr>
       </thead>  
@@ -520,7 +534,7 @@
 
   <section class="report-section">
     <h3>💡 6-2. 인사이트 & Quick Tip</h3>
-    <table>  
+    <table class="soft-insight">  
       <thead>  
         <tr><th>역량</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>  
       </thead>  
@@ -595,7 +609,7 @@
 
   <section class="report-section">
     <h3>🏅 7-2. 추천 직무 (Top 10)</h3>
-    <table>
+    <table class="jobs-table">
       <thead>
         <tr><th>순위</th><th>추천 직무</th><th>추천 사유</th><th>팁</th></tr>
       </thead>
@@ -614,7 +628,7 @@
 
   <section class="report-section">
     <h3>🤖 7-3. AI 관련 신직무 추천 (Top 5)</h3>
-    <table>
+    <table class="ai-jobs-table">
       <thead>
         <tr><th>순위</th><th>직무</th><th>사유</th><th>팁</th></tr>
       </thead>

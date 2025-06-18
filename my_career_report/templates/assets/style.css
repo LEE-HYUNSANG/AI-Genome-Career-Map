@@ -152,3 +152,70 @@ img {
     color: #555;
     margin-top: -8px;
 }
+/* Alignment and layout for values results table */
+.values-results {
+    table-layout: fixed;
+}
+.values-results th,
+.values-results td {
+    width: 25%;
+}
+.values-results th {
+    text-align: center;
+}
+.values-results td:first-child {
+    text-align: center;
+}
+.values-results td:not(:first-child) {
+    text-align: right;
+}
+
+/* Alignment and layout for AI results table */
+.ai-results {
+    table-layout: fixed;
+}
+.ai-results th,
+.ai-results td {
+    width: 25%;
+}
+.ai-results th {
+    text-align: center;
+}
+.ai-results td:first-child {
+    text-align: center;
+}
+.ai-results td:not(:first-child) {
+    text-align: right;
+}
+
+/* Alignment and layout for tech and soft results tables */
+.tech-results, .soft-results {
+    table-layout: fixed;
+}
+.tech-results th, .tech-results td,
+.soft-results th, .soft-results td {
+    width: 50%;
+}
+.tech-results th, .soft-results th {
+    text-align: center;
+}
+.tech-results td:first-child, .soft-results td:first-child {
+    text-align: center;
+}
+.tech-results td:last-child, .soft-results td:last-child {
+    text-align: right;
+}
+
+/* Alignment for tech/soft insight tables */
+.tech-insight td:first-child,
+.soft-insight td:first-child {
+    text-align: center;
+}
+
+/* Alignment for jobs tables */
+.jobs-table td:first-child,
+.jobs-table td:nth-child(2),
+.ai-jobs-table td:first-child,
+.ai-jobs-table td:nth-child(2) {
+    text-align: center;
+}
