@@ -8,8 +8,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 async function renderCharts(dataPath, outDir) {
   const width = 600;
   const height = 400;
-  const canvas = new ChartJSNodeCanvas({ width, height, chartCallback: (Chart) => { Chart.defaults.font.size = 24; } });
+  const canvas = new ChartJSNodeCanvas({
+    width,
+    height,
+    chartCallback: (Chart) => {
+      Chart.defaults.font.size = 14;
+      Chart.defaults.font.family = 'NanumSquareRound Regular, NanumSquareRound Bold, Arial, sans-serif';
+    }
+  });
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  const name = data.name || 'Your';
   fs.mkdirSync(outDir, { recursive: true });
 
   const big5Codes = ['E','A','C','N','O'];
@@ -22,7 +30,7 @@ async function renderCharts(dataPath, outDir) {
       labels: big5Labels,
       datasets: [
         {
-          label: 'Your Score',
+          label: `${name} Score`,
           data: big5Scores,
           backgroundColor: 'rgba(54, 162, 235, 0.3)',
           borderColor: 'rgb(54, 162, 235)',

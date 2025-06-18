@@ -28,7 +28,7 @@
     <table class="big5-results">
       <thead>
         <tr>
-          <th>Big-5 요인</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th>
+          <th>Big-5 요인</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th>
         </tr>
       </thead>
       <tbody>
@@ -127,7 +127,7 @@
     <h3>📊 2-1. 검사 결과</h3>
     <table class="insight-tip">
       <thead>
-        <tr><th>관심도 타입</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
+        <tr><th>관심도 타입</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for t in ["R","I","A","S","E","C"] %}
@@ -219,7 +219,7 @@
     <h3>📊 3-1. 검사 결과</h3>
     <table class="insight-tip">
       <thead>
-        <tr><th>관심도 타입</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
+        <tr><th>관심도 타입</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for k in ["A","I","Rec","Rel","S","W"] %}
@@ -311,7 +311,7 @@
     <h3>📊 4-1. 검사 결과</h3>
     <table>
       <thead>
-        <tr><th>역량 영역</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
+        <tr><th>역량 영역</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for k in ["EU","TS","CE","AO","SE","CB","ER"] %}
@@ -403,7 +403,7 @@
     <h3>📊 5-1. 검사 결과</h3>
     <table>
       <thead>
-        <tr><th>핵심 역량</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
+        <tr><th>핵심 역량</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for item in tech %}
@@ -495,7 +495,7 @@
     <h3>📊 6-1. 검사 결과</h3>
     <table>
       <thead>  
-        <tr><th>역량 항목</th><th>Your Score</th></tr>  
+        <tr><th>역량 항목</th><th>{{ name }} Score</th></tr>
       </thead>  
       <tbody>  
         {% for s in soft %}  
@@ -702,7 +702,9 @@
 
   <script>
     const data = JSON.parse(document.getElementById('report-data').textContent);
-    Chart.defaults.font.size = 24;
+    const style = window.getComputedStyle(document.body);
+    Chart.defaults.font.family = style.fontFamily;
+    Chart.defaults.font.size = parseFloat(style.fontSize);
 
     // Ⅰ. BIG-5 차트
     const codes = ['E','A','C','N','O'];
@@ -714,7 +716,7 @@
     data: {
       labels: big5Labels,
       datasets: [
-        { label: 'Your Score', data: big5Scores, backgroundColor: 'rgba(54, 162, 235, 0.3)', borderColor: 'rgb(54, 162, 235)', borderWidth: 2 },
+        { label: '{{ name }} Score', data: big5Scores, backgroundColor: 'rgba(54, 162, 235, 0.3)', borderColor: 'rgb(54, 162, 235)', borderWidth: 2 },
         { label: 'Global Norm', data: big5Norm, backgroundColor: 'rgba(255, 99, 132, 0.1)', borderColor: 'rgb(255, 99, 132)', borderWidth: 2 }
       ]
     },
