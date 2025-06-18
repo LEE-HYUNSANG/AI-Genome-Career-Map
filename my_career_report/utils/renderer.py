@@ -18,19 +18,24 @@ def render_html(data: dict, cfg: dict) -> str:
     styles = dict(cfg['styles'])
     styles['css'] = rel_style
 
-    # Convert chart image paths to ``file://`` URIs so WeasyPrint can always
-    # resolve them regardless of the current working directory.  Using absolute
-    # URIs avoids issues with ``..`` segments that some environments disallow
-    # when loading local files.
+    # Convert chart image paths to be relative to the HTML output.  WeasyPrint
+    # resolves relative URLs based on the HTML file location, so using relative
+    # paths keeps the generated report portable.  The original configuration may
+    # contain absolute paths, so we normalise them here.
     charts_cfg = dict(cfg['charts'])
     if 'images' in charts_cfg:
-        uri_images = {
-            key: Path(path).resolve().as_uri()
+        rel_images = {
+            key: os.path.relpath(path, start=os.path.dirname(cfg['output']['html']))
             for key, path in charts_cfg['images'].items()
         }
-        charts_cfg['images'] = uri_images
+        charts_cfg['images'] = rel_images
 
-    html = template.render(**data, styles=styles, charts=charts_cfg)
+    scripts_cfg = dict(cfg.get('scripts', {}))
+    if 'chartjs' in scripts_cfg:
+        rel_script = os.path.relpath(scripts_cfg['chartjs'], start=os.path.dirname(cfg['output']['html']))
+        scripts_cfg['chartjs'] = rel_script
+
+    html = template.render(**data, styles=styles, charts=charts_cfg, scripts=scripts_cfg)
     output_path = cfg['output']['html']
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
