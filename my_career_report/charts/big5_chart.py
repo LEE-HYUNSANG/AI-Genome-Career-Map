@@ -22,8 +22,10 @@ def render_big5(data: dict, output_path: str, cfg: dict) -> None:
     """
 
     big5_data = data.get("big5", data)
-    labels = ["E", "A", "C", "N", "O"]
-    scores = [big5_data[label] for label in labels]
+    LABEL_MAP = {"E": "외향성", "A": "친화성", "C": "성실성", "N": "신경성", "O": "개방성"}
+    codes = ["E", "A", "C", "N", "O"]
+    labels = [LABEL_MAP[c] for c in codes]
+    scores = [big5_data[c] for c in codes]
 
     dpi = cfg["charts"].get("dpi", 300)
     figsize = tuple(cfg["charts"].get("figsize", [6, 4]))
