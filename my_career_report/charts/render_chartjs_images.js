@@ -15,10 +15,29 @@ async function renderCharts(dataPath, outDir) {
   const big5Codes = ['E','A','C','N','O'];
   const big5Labels = ['외향성','친화성','성실성','신경성','개방성'];
   const big5Scores = big5Codes.map(k => data.big5[k]);
+  const big5Norm = big5Codes.map(k => (data.big5_norm || {})[k]);
   let config = {
-    type: 'bar',
-    data: { labels: big5Labels, datasets: [{ label: 'Score', data: big5Scores }] },
-    options: { scales: { y: { beginAtZero: true, max: 100 } } }
+    type: 'radar',
+    data: {
+      labels: big5Labels,
+      datasets: [
+        {
+          label: 'Your Score',
+          data: big5Scores,
+          backgroundColor: 'rgba(54, 162, 235, 0.3)',
+          borderColor: 'rgb(54, 162, 235)',
+          borderWidth: 2
+        },
+        {
+          label: 'Global Norm',
+          data: big5Norm,
+          backgroundColor: 'rgba(255, 99, 132, 0.1)',
+          borderColor: 'rgb(255, 99, 132)',
+          borderWidth: 2
+        }
+      ]
+    },
+    options: { scales: { r: { beginAtZero: true, max: 100 } } }
   };
   let buffer = await canvas.renderToBuffer(config);
   fs.writeFileSync(path.join(outDir, 'big5.png'), buffer);

@@ -7,6 +7,7 @@ def generate_chartjs_data(data: Dict[str, Any], output_path: str) -> str:
     """Generate a JSON file with Chart.js-friendly data."""
     dataset = {
         "big5": data.get("big5", {}),
+        "big5_norm": data.get("big5_norm", {}),
         "interest": data.get("interest", {}),
         "values": data.get("values", {}),
         "ai": data.get("ai", {}),
