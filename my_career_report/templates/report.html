@@ -230,7 +230,7 @@
     <h3>📊 3-1. 검사 결과</h3>
     <table class="insight-tip values-results">
       <thead>
-        <tr><th>직업가치관</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
+        <tr><th>BIG-5 성향</th><th>{{ name }}님의 점수</th><th>평균값</th></tr>
       </thead>
       <tbody>
         {% for k in ["A","I","Rec","Rel","S","W"] %}
@@ -238,7 +238,6 @@
           <td>{{ values_labels[k] }}</td>
           <td>{{ values[k]|round(1) }}</td>
           <td>{{ values_norm[k]|round(1) }}</td>
-          <td>{{ (values[k] - values_norm[k])|round(1) }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -250,7 +249,7 @@
     <h3>💡 3-2. 인사이트 & Quick Tip</h3>
     <table class="insight-tip">
       <thead>
-        <tr><th>직업가치관</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
+        <tr><th>BIG-5 성향</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
       </thead>
       <tbody>
         {% for k in ["A","I","Rec","Rel","S","W"] %}
@@ -330,7 +329,7 @@
     <h3>📊 4-1. 검사 결과</h3>
     <table class="ai-results">
       <thead>
-        <tr><th>역량 영역</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
+        <tr><th>AI 활용능력</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for k in ["EU","TS","CE","AO","SE","CB","ER"] %}
@@ -429,7 +428,7 @@
     <h3>📊 5-1. 검사 결과</h3>
     <table class="tech-results">
       <thead>
-        <tr><th>핵심 역량</th><th>{{ name }}님의 점수</th></tr>
+        <tr><th>AI/기술 핵심 역량</th><th>{{ name }}님의 점수</th></tr>
       </thead>
       <tbody>
         {% for item in tech %}
