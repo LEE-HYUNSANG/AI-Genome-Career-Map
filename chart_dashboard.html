@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chart.js Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="equityChart" width="600" height="400"></canvas>
+  <canvas id="winRateChart" width="400" height="400"></canvas>
+  <canvas id="countChart" width="600" height="400"></canvas>
+  <canvas id="avgRoiChart" width="600" height="400"></canvas>
+  <canvas id="sharpeChart" width="600" height="400"></canvas>
+  <canvas id="mddChart" width="600" height="400"></canvas>
+  <canvas id="scatterChart" width="600" height="400"></canvas>
+
+  <script>
+    const equityCtx = document.getElementById('equityChart');
+    new Chart(equityCtx, {
+      type: 'line',
+      data: {
+        labels: ['2024-01-01','2024-02-01','2024-03-01'], // placeholder dates
+        datasets: [{
+          label: 'Cumulative ROI (%)',
+          data: [0, 5, 8], // placeholder cumulative ROI values
+          borderColor: 'blue',
+          backgroundColor: 'rgba(0,0,255,0.1)'
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            title: { display: true, text: 'Date' }
+          },
+          y: {
+            title: { display: true, text: 'Cumulative ROI (%)' }
+          }
+        }
+      }
+    });
+
+    const winRateCtx = document.getElementById('winRateChart');
+    new Chart(winRateCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Win', 'Loss'],
+        datasets: [{
+          data: [60, 40], // placeholder win/loss rate
+          backgroundColor: ['green', 'red']
+        }]
+      }
+    });
+
+    const countCtx = document.getElementById('countChart');
+    new Chart(countCtx, {
+      type: 'bar',
+      data: {
+        labels: ['TP', 'Force Close', 'Hold'],
+        datasets: [{
+          label: 'Count',
+          data: [15, 3, 2], // placeholder counts
+          backgroundColor: ['purple', 'orange', 'gray']
+        }]
+      },
+      options: {
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    const avgRoiCtx = document.getElementById('avgRoiChart');
+    new Chart(avgRoiCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Strategy A', 'Strategy B', 'Strategy C'], // placeholder
+        datasets: [{
+          label: 'Avg ROI (%)',
+          data: [2.5, 1.2, 3.0], // placeholder average ROI values
+          backgroundColor: 'teal'
+        }]
+      }
+    });
+
+    const sharpeCtx = document.getElementById('sharpeChart');
+    new Chart(sharpeCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Strategy A', 'Strategy B', 'Strategy C'], // placeholder
+        datasets: [{
+          label: 'Sharpe Ratio',
+          data: [1.1, 0.9, 1.4], // placeholder Sharpe ratios
+          backgroundColor: 'darkcyan'
+        }]
+      }
+    });
+
+    const mddCtx = document.getElementById('mddChart');
+    new Chart(mddCtx, {
+      type: 'line',
+      data: {
+        labels: ['2024-01','2024-02','2024-03'], // placeholder dates
+        datasets: [{
+          label: 'Drawdown (%)',
+          data: [0, -5, -3], // placeholder drawdown values
+          fill: true,
+          borderColor: 'red',
+          backgroundColor: 'rgba(255,0,0,0.1)'
+        }]
+      }
+    });
+
+    const scatterCtx = document.getElementById('scatterChart');
+    new Chart(scatterCtx, {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          label: 'Volatility vs Return',
+          data: [
+            { x: 2, y: 1 },
+            { x: 5, y: 3 },
+            { x: 8, y: 2 }
+          ] // placeholder points
+        }]
+      },
+      options: {
+        scales: {
+          x: { title: { display: true, text: 'Volatility (%)' } },
+          y: { title: { display: true, text: 'Return (%)' } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
