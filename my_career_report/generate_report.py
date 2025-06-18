@@ -5,6 +5,7 @@ import yaml
 from utils.loader import load_data
 from utils.renderer import render_html
 from utils.exporter import html_to_pdf
+from utils.fontconfig import set_korean_font
 from charts.big5_chart import render_big5
 from charts.other_charts import (
     render_interest,
@@ -20,6 +21,7 @@ DATA_PATH = os.path.join(BASE_DIR, 'data/sample_input.json')
 
 
 def main():
+    set_korean_font()
     with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
         cfg = yaml.safe_load(f)
 

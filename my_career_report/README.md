@@ -19,6 +19,13 @@ python generate_report.py
 
 This will create `dist/report.html` and `dist/report.pdf`.
 
+### Korean fonts
+
+The charts rely on the **Noto Sans CJK** fonts that ship with most Linux
+distributions. `generate_report.py` loads this font at runtime so Korean labels
+render correctly. If the font is missing, the script falls back to other common
+Korean fonts such as NanumGothic or Malgun Gothic when available.
+
 ### WeasyPrint dependencies
 
 WeasyPrint relies on external libraries such as **cairo** and **Pango**. On
