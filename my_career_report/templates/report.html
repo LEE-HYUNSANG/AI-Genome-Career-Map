@@ -16,7 +16,6 @@
   <h2>Ⅰ. 개인성향 BIG5 요인 분석</h2>
   <h3>📈 BIG‐5 성향 그래프</h3>
   <canvas id="big5Chart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="{{ charts.images.big5 }}" class="chart-img" alt="BIG5 chart"/>
 
   <section class="report-section">
     <h3>📊 1-1. 검사 결과</h3>
@@ -110,7 +109,6 @@
   <h2>Ⅱ. 직무 관심사 분석</h2>
   <h3>📈 직무 관심사 그래프</h3>
   <canvas id="interestChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="{{ charts.images.interest }}" class="chart-img" alt="Interest chart"/>
 
   <section class="report-section">
     <h3>📊 2-1. 검사 결과</h3>
@@ -202,7 +200,6 @@
   <h2>Ⅲ. 직업 가치관 분석</h2>
   <h3>📈 직업 가치관 그래프</h3>
   <canvas id="valuesChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="{{ charts.images.values }}" class="chart-img" alt="Values chart"/>
 
   <section class="report-section">
     <h3>📊 3-1. 검사 결과</h3>
@@ -294,7 +291,6 @@
   <h2>Ⅳ. AI 활용능력 분석</h2>
   <h3>📈 AI 활용능력 그래프</h3>
   <canvas id="aiChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="{{ charts.images.ai }}" class="chart-img" alt="AI chart"/>
 
   <section class="report-section">
     <h3>📊 4-1. 검사 결과</h3>
@@ -386,7 +382,6 @@
   <h2>Ⅴ. AI/기술 핵심 역량 분석</h2>
   <h3>📈 기술 역량 그래프</h3>
   <canvas id="techChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="{{ charts.images.tech }}" class="chart-img" alt="Tech chart"/>
 
   <section class="report-section">
     <h3>📊 5-1. 검사 결과</h3>
@@ -478,7 +473,6 @@
   <h2>Ⅵ. 비즈니스·소프트 스킬 분석</h2>
   <h3>📈 소프트 스킬 그래프</h3>
   <canvas id="softChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="{{ charts.images.soft }}" class="chart-img" alt="Soft skills chart"/>
 
   <section class="report-section">
     <h3>📊 6-1. 검사 결과</h3>
@@ -692,7 +686,7 @@
     const data = JSON.parse(document.getElementById('report-data').textContent);
 
     // Ⅰ. BIG-5 차트
-    const big5Labels = ["E","A","C","N","O"];
+    const big5Labels = ["외향성","친화성","성실성","신경성","개방성"];
     const big5Scores = big5Labels.map(k => data.big5[k]);
   new Chart(document.getElementById("big5Chart"), {
     type: 'bar',
@@ -701,7 +695,7 @@
   });
 
     // Ⅱ. 직무 관심사 차트
-    const interestLabels = ["R","I","A","S","E","C"];
+    const interestLabels = ["현실형","탐구형","예술형","사회형","기업형","관습형"];
     const interestScores = interestLabels.map(k => data.interest[k]);
   new Chart(document.getElementById("interestChart"), {
     type: 'bar',
@@ -710,7 +704,7 @@
   });
 
     // Ⅲ. 가치관 차트
-  const valuesLabels = ["A","I","Rec","Rel","S","W"];
+  const valuesLabels = ["능력발휘","자율성","보상","안정성","사회적 인정","워라밸"];
   const valuesScores = valuesLabels.map(k => data.values[k]);
   new Chart(document.getElementById("valuesChart"), {
     type: 'radar',
@@ -719,7 +713,7 @@
   });
 
     // Ⅳ. AI 활용능력 차트
-  const aiLabels = ["EU","TS","CE","AO","SE","CB","ER"];
+  const aiLabels = ["AI 이해","프롬프트","검증","도구 적용","학습","협업","윤리"];
   const aiScores = aiLabels.map(k => data.ai[k]);
   new Chart(document.getElementById("aiChart"), {
     type: 'radar',
