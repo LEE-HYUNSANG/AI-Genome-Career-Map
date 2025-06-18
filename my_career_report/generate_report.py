@@ -45,6 +45,15 @@ def main():
 
     os.makedirs(os.path.join(BASE_DIR, 'dist'), exist_ok=True)
 
+    # Ensure required Node.js packages are installed
+    node_modules = os.path.join(BASE_DIR, 'node_modules')
+    datalabels_pkg = os.path.join(node_modules, 'chartjs-plugin-datalabels')
+    if not os.path.exists(datalabels_pkg):
+        raise RuntimeError(
+            "Node dependencies not found. Please run 'npm install' in the "
+            "my_career_report directory before generating the report."
+        )
+
     # Copy a local copy of Chart.js so the report works offline
     chartjs_src = os.path.join(BASE_DIR, 'node_modules', 'chart.js', 'dist', 'chart.umd.js')
     chartjs_dest = os.path.join(os.path.dirname(cfg['output']['html']), 'chart.js')
