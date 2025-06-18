@@ -32,6 +32,14 @@ def collapse_keys(obj):
         return [collapse_keys(v) for v in obj]
     return obj
 
+
+def check_node() -> None:
+    """Ensure the Node.js executable is available."""
+    if shutil.which('node') is None:
+        raise RuntimeError(
+            "Node.js executable not found. Please install Node.js."
+        )
+
 def main():
     set_korean_font()
     with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
@@ -63,6 +71,9 @@ def main():
     data = round_floats(data, 1)
 
     os.makedirs(os.path.join(BASE_DIR, 'dist'), exist_ok=True)
+
+    # Ensure Node.js is installed before validating dependencies
+    check_node()
 
     # Ensure required Node.js packages are installed
     node_modules = os.path.join(BASE_DIR, 'node_modules')
