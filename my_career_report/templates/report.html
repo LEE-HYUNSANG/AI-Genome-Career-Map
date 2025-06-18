@@ -18,6 +18,7 @@
 
   <!-- Ⅰ. 개인성향 BIG5 요인 분석 -->
   <h2>Ⅰ. 개인성향 BIG5 요인 분석</h2>
+  {% set factor_labels = {"E":"외향성","A":"친화성","C":"성실성","N":"신경성","O":"개방성"} %}
   <h3>📈 BIG‐5 성향 그래프</h3>
   <canvas id="big5Chart" class="chart-canvas" width="600" height="400"></canvas>
   <img src="{{ charts.images.big5 }}" class="chart-img" width="600" height="400" alt="BIG-5 chart"/>
@@ -33,7 +34,7 @@
       <tbody>
         {% for factor in ["E","A","C","N","O"] %}
         <tr>
-          <td>{{ factor }}</td>
+          <td>{{ factor_labels[factor] }}</td>
           <td>{{ big5[factor]|round(1) }}</td>
           <td>{{ big5_norm[factor]|round(1) }}</td>
           <td>{{ (big5[factor] - big5_norm[factor])|round(1) }}</td>
@@ -52,7 +53,7 @@
       <tbody>
         {% for factor in ["E","A","C","N","O"] %}
         <tr>
-          <td>{{ factor }} (Δ={{ (big5[factor] - big5_norm[factor])|round(1) }})</td>
+          <td>{{ factor_labels[factor] }} (Δ={{ (big5[factor] - big5_norm[factor])|round(1) }})</td>
           <td>{{ insight[factor] }}</td>
           <td>{{ tip[factor] }}</td>
         </tr>
@@ -696,8 +697,9 @@
     const data = JSON.parse(document.getElementById('report-data').textContent);
 
     // Ⅰ. BIG-5 차트
-    const big5Labels = ["외향성","친화성","성실성","신경성","개방성"];
-    const big5Scores = big5Labels.map(k => data.big5[k]);
+    const codes = ['E','A','C','N','O'];
+    const big5Labels = ['외향성','친화성','성실성','신경성','개방성'];
+    const big5Scores = codes.map(k => data.big5[k]);
   new Chart(document.getElementById("big5Chart"), {
     type: 'bar',
     data: { labels: big5Labels, datasets: [{ label: 'Score', data: big5Scores }] },
