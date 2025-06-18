@@ -688,56 +688,56 @@
     // Ⅰ. BIG-5 차트
     const big5Labels = ["E","A","C","N","O"];
     const big5Scores = big5Labels.map(k => data.big5[k]);
-    new Chart(document.getElementById("big5Chart"), {
-      type: 'bar',
-      data: { labels: big5Labels, datasets: [{ label: 'Your Score', data: big5Scores }] },
-      options: { scales: { y: { beginAtZero: true, max:100 } } }
-    });
+  new Chart(document.getElementById("big5Chart"), {
+    type: 'bar',
+    data: { labels: big5Labels, datasets: [{ label: 'Score', data: big5Scores }] },
+    options: { scales: { y: { beginAtZero: true, max:100 } } }
+  });
 
     // Ⅱ. 직무 관심사 차트
     const interestLabels = ["R","I","A","S","E","C"];
     const interestScores = interestLabels.map(k => data.interest[k]);
-    new Chart(document.getElementById("interestChart"), {
-      type: 'bar',
-      data: { labels: interestLabels, datasets: [{ label: 'Your Score', data: interestScores }] },
-      options: { scales: { y: { beginAtZero: true, max:100 } } }
-    });
+  new Chart(document.getElementById("interestChart"), {
+    type: 'bar',
+    data: { labels: interestLabels, datasets: [{ label: 'Score', data: interestScores }] },
+    options: { scales: { y: { beginAtZero: true, max:100 } } }
+  });
 
     // Ⅲ. 가치관 차트
-    const valuesLabels = ["A","I","Rec","Rel","S","W"];
-    const valuesScores = valuesLabels.map(k => data.values[k]);
-    new Chart(document.getElementById("valuesChart"), {
-      type: 'bar',
-      data: { labels: valuesLabels, datasets: [{ label: 'Your Score', data: valuesScores }] },
-      options: { scales: { y: { beginAtZero: true, max:100 } } }
-    });
+  const valuesLabels = ["A","I","Rec","Rel","S","W"];
+  const valuesScores = valuesLabels.map(k => data.values[k]);
+  new Chart(document.getElementById("valuesChart"), {
+    type: 'radar',
+    data: { labels: valuesLabels, datasets: [{ label: 'Score', data: valuesScores }] },
+    options: { scales: { r: { beginAtZero: true, max:100 } } }
+  });
 
     // Ⅳ. AI 활용능력 차트
-    const aiLabels = ["EU","TS","CE","AO","SE","CB","ER"];
-    const aiScores = aiLabels.map(k => data.ai[k]);
-    new Chart(document.getElementById("aiChart"), {
-      type: 'bar',
-      data: { labels: aiLabels, datasets: [{ label: 'Your Score', data: aiScores }] },
-      options: { scales: { y: { beginAtZero: true, max:100 } } }
-    });
+  const aiLabels = ["EU","TS","CE","AO","SE","CB","ER"];
+  const aiScores = aiLabels.map(k => data.ai[k]);
+  new Chart(document.getElementById("aiChart"), {
+    type: 'radar',
+    data: { labels: aiLabels, datasets: [{ label: 'Score', data: aiScores }] },
+    options: { scales: { r: { beginAtZero: true, max:100 } } }
+  });
 
     // Ⅴ. 기술 역량 차트
-    const techLabels = data.tech.labels;
-    const techScores = data.tech.scores;
-    new Chart(document.getElementById("techChart"), {
-      type: 'bar',
-      data: { labels: techLabels, datasets: [{ label: 'Your Score', data: techScores }] },
-      options: { scales: { y: { beginAtZero: true, max:100 } } }
-    });
+  const techLabels = data.tech.labels;
+  const techScores = data.tech.scores;
+  new Chart(document.getElementById("techChart"), {
+    type: 'bar',
+    data: { labels: techLabels, datasets: [{ label: 'Score', data: techScores }] },
+    options: { indexAxis: 'y', scales: { x: { beginAtZero: true, max:100 } } }
+  });
 
     // Ⅵ. 소프트 스킬 차트
-    const softLabels = data.soft.labels;
-    const softScores = data.soft.scores;
-    new Chart(document.getElementById("softChart"), {
-      type: 'bar',
-      data: { labels: softLabels, datasets: [{ label: 'Your Score', data: softScores }] },
-      options: { scales: { y: { beginAtZero: true, max:100 } } }
-    });
+  const softLabels = data.soft.labels;
+  const softScores = data.soft.scores;
+  new Chart(document.getElementById("softChart"), {
+    type: 'bar',
+    data: { labels: softLabels, datasets: [{ label: 'Score', data: softScores }] },
+    options: { indexAxis: 'y', scales: { x: { beginAtZero: true, max:100 } } }
+  });
   </script>
 </body>
 </html>
