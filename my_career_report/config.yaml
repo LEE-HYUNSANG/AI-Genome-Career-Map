@@ -4,11 +4,6 @@ output:
 styles:
   css:  "templates/assets/style.css"
 charts:
-  big5:     "charts/output/big5.png"
-  interest: "charts/output/interest.png"
-  values:   "charts/output/values.png"
-  ai:       "charts/output/ai.png"
-  tech:     "charts/output/tech.png"
-  soft:     "charts/output/soft.png"
-  dpi:      300
+  data: "charts/output/chart_data.json"
+  dpi: 300
   figsize: [6,4]
