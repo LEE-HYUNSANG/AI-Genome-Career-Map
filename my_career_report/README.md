@@ -42,17 +42,8 @@ MSYS2 packages will resolve the issue.
 
 The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies and runs `generate_report.py` on each push. The generated PDF is uploaded as a workflow artifact.
 
-## Chart.js Image Rendering
+## Chart.js Data
 
-To create a chart image with Chart.js on Node.js run:
-
-```bash
-npm install
-node charts/render_big5_chartjs.js
-node charts/render_interest_chartjs.js
-```
-
-These commands generate `charts/output/big5_chartjs.png` and
-`charts/output/interest_chartjs.png` using the data from
-`data/sample_input.json`. The BIG-5 chart is rendered as a **polar area**
-chart, while the RIASEC interest chart uses a **radar** chart.
+`generate_report.py` now exports a JSON file with the data needed for the
+Chart.js visualisations. The file is written to `charts/output/chart_data.json`
+and can be used directly in web pages.
