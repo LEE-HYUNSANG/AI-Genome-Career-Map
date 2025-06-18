@@ -46,9 +46,11 @@ th {
 
 .chart-img {
     display: none;
+    margin: 0 auto;
 }
 .chart-canvas {
     display: block;
+    margin: 0 auto;
 }
 
 .report-section {
@@ -67,7 +69,7 @@ img {
     body { font-size: 12pt; }
     table { page-break-inside: avoid; }
     .chart-canvas { display: none; }
-    .chart-img { display: block; }
+    .chart-img { display: block; margin: 0 auto; }
 }
 
 /* Page layout with header and footer */
@@ -101,4 +103,27 @@ img {
 
 .page-break {
     page-break-after: always;
+}
+
+/* Alignment for BIG-5 results table */
+.big5-results th {
+    text-align: center;
+}
+.big5-results td:first-child {
+    text-align: center;
+}
+.big5-results td:not(:first-child) {
+    text-align: right;
+}
+
+/* Alignment for BIG-5 career table */
+.big5-career th:first-child,
+.big5-career td:first-child {
+    text-align: center;
+}
+
+/* Alignment for insight & quick tip tables */
+.insight-tip th:first-child,
+.insight-tip td:first-child {
+    text-align: center;
 }
