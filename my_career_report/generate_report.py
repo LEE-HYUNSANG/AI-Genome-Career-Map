@@ -15,6 +15,7 @@ import shutil
 BASE_DIR = os.path.dirname(__file__)
 CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
 DATA_PATH = os.path.join(BASE_DIR, 'data/sample_input.json')
+FIX_PATH = os.path.join(BASE_DIR, 'data/fix/fix_input.json')
 
 
 def main():
@@ -41,6 +42,9 @@ def main():
     }
 
     data = load_data(DATA_PATH)
+    if os.path.exists(FIX_PATH):
+        fix_data = load_data(FIX_PATH)
+        data.update(fix_data)
     data = round_floats(data, 1)
 
     os.makedirs(os.path.join(BASE_DIR, 'dist'), exist_ok=True)
