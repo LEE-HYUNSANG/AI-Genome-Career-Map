@@ -34,6 +34,8 @@ bash run_report.sh
 
 - **그래프 이미지**
   - PDF 파일은 자바스크립트를 실행하지 못하므로, 보고서 생성 과정에서 Chart.js로 그래프 이미지를 미리 만들어 포함합니다.
+  - `my_career_report/charts/output` 폴더의 PNG 파일은 `generate_report.py` 실행 시 자동으로 생성되며 `.gitignore`에 의해 버전 관리 대상에서 제외됩니다.
+  - `npm install` 후 `python generate_report.py` 명령을 실행하면 필요한 이미지를 함께 생성합니다.
 - **한글 폰트**
   - 시스템에 `Noto Sans CJK`나 `NanumSquare` 계열 폰트가 설치되어 있어야 한글이 올바르게 표시됩니다.
 - **데이터 수정**
