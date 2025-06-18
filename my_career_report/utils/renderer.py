@@ -18,7 +18,17 @@ def render_html(data: dict, cfg: dict) -> str:
     styles = dict(cfg['styles'])
     styles['css'] = rel_style
 
-    html = template.render(**data, styles=styles, charts=cfg['charts'])
+    # Convert chart image paths to be relative to the output HTML directory so
+    # that both the browser and WeasyPrint can correctly locate them.
+    charts_cfg = dict(cfg['charts'])
+    if 'images' in charts_cfg:
+        rel_images = {
+            key: os.path.relpath(path, start=os.path.dirname(cfg['output']['html']))
+            for key, path in charts_cfg['images'].items()
+        }
+        charts_cfg['images'] = rel_images
+
+    html = template.render(**data, styles=styles, charts=charts_cfg)
     output_path = cfg['output']['html']
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
