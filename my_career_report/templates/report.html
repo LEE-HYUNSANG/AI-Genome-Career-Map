@@ -664,16 +664,30 @@
     <ol>{% for s in swotStrategies.WT %}<li>{{ s }}</li>{% endfor %}</ol>
   </details>
 
+  <!-- Chart data as JSON to avoid JS warnings -->
+  <script id="report-data" type="application/json">
+  {
+    "big5": {{ big5 | tojson }},
+    "interest": {{ interest | tojson }},
+    "values": {{ values | tojson }},
+    "ai": {{ ai | tojson }},
+    "tech": {
+      "labels": {{ tech | map(attribute='name') | list | tojson }},
+      "scores": {{ tech | map(attribute='score') | list | tojson }}
+    },
+    "soft": {
+      "labels": {{ soft | map(attribute='name') | list | tojson }},
+      "scores": {{ soft | map(attribute='score') | list | tojson }}
+    }
+  }
+  </script>
+
   <script>
-    // Prepare raw data objects for charts
-    const big5Data = {{ big5 | tojson }};
-    const interestData = {{ interest | tojson }};
-    const valuesData = {{ values | tojson }};
-    const aiData = {{ ai | tojson }};
+    const data = JSON.parse(document.getElementById('report-data').textContent);
 
     // Ⅰ. BIG-5 차트
     const big5Labels = ["E","A","C","N","O"];
-    const big5Scores = big5Labels.map(k => big5Data[k]);
+    const big5Scores = big5Labels.map(k => data.big5[k]);
     new Chart(document.getElementById("big5Chart"), {
       type: 'bar',
       data: { labels: big5Labels, datasets: [{ label: 'Your Score', data: big5Scores }] },
@@ -682,7 +696,7 @@
 
     // Ⅱ. 직무 관심사 차트
     const interestLabels = ["R","I","A","S","E","C"];
-    const interestScores = interestLabels.map(k => interestData[k]);
+    const interestScores = interestLabels.map(k => data.interest[k]);
     new Chart(document.getElementById("interestChart"), {
       type: 'bar',
       data: { labels: interestLabels, datasets: [{ label: 'Your Score', data: interestScores }] },
@@ -691,7 +705,7 @@
 
     // Ⅲ. 가치관 차트
     const valuesLabels = ["A","I","Rec","Rel","S","W"];
-    const valuesScores = valuesLabels.map(k => valuesData[k]);
+    const valuesScores = valuesLabels.map(k => data.values[k]);
     new Chart(document.getElementById("valuesChart"), {
       type: 'bar',
       data: { labels: valuesLabels, datasets: [{ label: 'Your Score', data: valuesScores }] },
@@ -700,7 +714,7 @@
 
     // Ⅳ. AI 활용능력 차트
     const aiLabels = ["EU","TS","CE","AO","SE","CB","ER"];
-    const aiScores = aiLabels.map(k => aiData[k]);
+    const aiScores = aiLabels.map(k => data.ai[k]);
     new Chart(document.getElementById("aiChart"), {
       type: 'bar',
       data: { labels: aiLabels, datasets: [{ label: 'Your Score', data: aiScores }] },
@@ -708,8 +722,8 @@
     });
 
     // Ⅴ. 기술 역량 차트
-    const techLabels = {{ tech | map(attribute='name') | list | tojson }};
-    const techScores = {{ tech | map(attribute='score') | list | tojson }};
+    const techLabels = data.tech.labels;
+    const techScores = data.tech.scores;
     new Chart(document.getElementById("techChart"), {
       type: 'bar',
       data: { labels: techLabels, datasets: [{ label: 'Your Score', data: techScores }] },
@@ -717,8 +731,8 @@
     });
 
     // Ⅵ. 소프트 스킬 차트
-    const softLabels = {{ soft | map(attribute='name') | list | tojson }};
-    const softScores = {{ soft | map(attribute='score') | list | tojson }};
+    const softLabels = data.soft.labels;
+    const softScores = data.soft.scores;
     new Chart(document.getElementById("softChart"), {
       type: 'bar',
       data: { labels: softLabels, datasets: [{ label: 'Your Score', data: softScores }] },
