@@ -7,3 +7,4 @@ charts:
   data: "charts/output/chart_data.json"
   dpi: 300
   figsize: [6,4]
+  images: "charts/output"

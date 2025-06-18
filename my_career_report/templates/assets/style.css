@@ -1,7 +1,11 @@
 /* File: templates/assets/style.css */
 body {
     font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
     margin: 20px;
+    color: #222;
 }
 table {
     width: 100%;
@@ -14,6 +18,18 @@ th, td {
 }
 h1, h2 {
     text-align: center;
+    color: #2b5797;
+}
+
+th {
+    background-color: #f0f4f8;
+}
+
+.chart-img {
+    display: none;
+}
+.chart-canvas {
+    display: block;
 }
 
 .report-section {
@@ -31,4 +47,6 @@ img {
 @media print {
     body { font-size: 12pt; }
     table { page-break-inside: avoid; }
+    .chart-canvas { display: none; }
+    .chart-img { display: block; }
 }
