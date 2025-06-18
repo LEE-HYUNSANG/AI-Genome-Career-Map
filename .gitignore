@@ -1,11 +1,2 @@
-# Python artifacts
-__pycache__/
-*.pyc
-
-# Node artifacts
-node_modules/
-package-lock.json
-
-# Report outputs
-my_career_report/dist/
-my_career_report/charts/output/
+# Node.js dependencies
+**/node_modules/
