@@ -690,8 +690,11 @@
     "big5": {{ big5 | tojson }},
     "big5_norm": {{ big5_norm | tojson }},
     "interest": {{ interest | tojson }},
+    "interest_norm": {{ interest_norm | tojson }},
     "values": {{ values | tojson }},
+    "values_norm": {{ values_norm | tojson }},
     "ai": {{ ai | tojson }},
+    "ai_norm": {{ ai_norm | tojson }},
     "tech": {
       "labels": {{ tech | map(attribute='name') | list | tojson }},
       "scores": {{ tech | map(attribute='score') | list | tojson }}
