@@ -49,6 +49,7 @@ th {
 }
 .chart-canvas {
     display: block;
+    margin: 0 auto;
 }
 
 .report-section {
@@ -101,4 +102,20 @@ img {
 
 .page-break {
     page-break-after: always;
+}
+
+/* Alignment for BIG-5 results table */
+.big5-results th:first-child,
+.big5-results td:first-child {
+    text-align: center;
+}
+.big5-results th:not(:first-child),
+.big5-results td:not(:first-child) {
+    text-align: left;
+}
+
+/* Alignment for BIG-5 career table */
+.big5-career th:nth-child(2),
+.big5-career td:nth-child(2) {
+    text-align: center;
 }
