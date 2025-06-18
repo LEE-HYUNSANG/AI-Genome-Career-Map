@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>AI 기반 진로 탐색 및 역량 진단 결과 보고서</title>
-  <link rel="stylesheet" href="..\templates\assets\style.css">
+  <link rel="stylesheet" href="../templates/assets/style.css">
   <script src="chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
@@ -22,7 +22,7 @@
   
   <h3>📈 BIG‐5 성향 그래프</h3>
   <canvas id="big5Chart" class="chart-canvas" width="800" height="600"></canvas>
-  <img src="..\charts\output\big5.png" class="chart-img" width="800" height="600" alt="BIG-5 chart"/>
+  <img src="../charts/output/big5.png" class="chart-img" width="800" height="600" alt="BIG-5 chart"/>
 
   <section class="report-section">
     <h3>📊 1-1. 검사 결과</h3>
@@ -218,13 +218,13 @@
   <!-- Ⅱ. 직무 관심사 분석 -->
   <h2>Ⅱ. 직무 관심사 분석</h2>
   <h3>📈 직무 관심사 그래프</h3>
-  <canvas id="interestChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="..\charts\output\interest.png" class="chart-img" width="600" height="400" alt="Interest chart"/>
+  <canvas id="riasecChart" class="chart-canvas" width="600" height="400"></canvas>
+  <img src="../charts/output/riasec.png" class="chart-img" width="600" height="400" alt="RIASEC chart"/>
   
 
   <section class="report-section">
     <h3>📊 2-1. 검사 결과</h3>
-    <table class="insight-tip interest-results">
+    <table class="insight-tip riasec-results">
       <thead>
         <tr><th>직무 관심사</th><th>홍길동님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
@@ -428,7 +428,7 @@
   <h2>Ⅲ. 직업 가치관 분석</h2>
   <h3>📈 직업 가치관 그래프</h3>
   <canvas id="valuesChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="..\charts\output\values.png" class="chart-img" width="600" height="400" alt="Values chart"/>
+  <img src="../charts/output/values.png" class="chart-img" width="600" height="400" alt="Values chart"/>
   
 
   <section class="report-section">
@@ -631,7 +631,7 @@
   <h2>Ⅳ. AI 활용능력 분석</h2>
   <h3>📈 AI 활용능력 그래프</h3>
   <canvas id="aiChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="..\charts\output\ai.png" class="chart-img" width="600" height="400" alt="AI chart"/>
+  <img src="../charts/output/ai.png" class="chart-img" width="600" height="400" alt="AI chart"/>
   
 
   <section class="report-section">
@@ -853,7 +853,7 @@
   <h2>Ⅴ. AI/기술 핵심 역량 분석</h2>
   <h3>📈 기술 역량 그래프</h3>
   <canvas id="techChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="..\charts\output\tech.png" class="chart-img" width="600" height="400" alt="Tech chart"/>
+  <img src="../charts/output/tech.png" class="chart-img" width="600" height="400" alt="Tech chart"/>
 
   <section class="report-section">
     <h3>📊 5-1. 검사 결과</h3>
@@ -1024,7 +1024,7 @@
   <h2>Ⅵ. 비즈니스·소프트 스킬 분석</h2>
   <h3>📈 소프트 스킬 그래프</h3>
   <canvas id="softChart" class="chart-canvas" width="600" height="400"></canvas>
-  <img src="..\charts\output\soft.png" class="chart-img" width="600" height="400" alt="Soft skills chart"/>
+  <img src="../charts/output/soft.png" class="chart-img" width="600" height="400" alt="Soft skills chart"/>
 
   <section class="report-section">
     <h3>📊 6-1. 검사 결과</h3>
@@ -1473,8 +1473,8 @@
   {
     "big5": {"A": 92.9, "C": 100.0, "E": 100.0, "N": 85.7, "O": 85.7},
     "big5_norm": {"A": 70.5, "C": 73.3, "E": 57.3, "N": 63.8, "O": 73.0},
-    "interest": {"A": 72.0, "C": 96.0, "E": 100.0, "I": 84.0, "R": 64.0, "S": 100.0},
-    "interest_norm": {"A": 56.5, "C": 53.0, "E": 59.0, "I": 57.8, "R": 45.5, "S": 58.5},
+    "riasec": {"A": 72.0, "C": 96.0, "E": 100.0, "I": 84.0, "R": 64.0, "S": 100.0},
+    "riasec_norm": {"A": 56.5, "C": 53.0, "E": 59.0, "I": 57.8, "R": 45.5, "S": 58.5},
     "values": {"A": 100.0, "I": 100.0, "Rec": 100.0, "Rel": 100.0, "S": 93.3, "W": 93.3},
     "values_norm": {"A": 72.5, "I": 41.8, "Rec": 33.3, "Rel": 46.1, "S": 56.0, "W": 44.5},
     "ai": {"AO": 100.0, "CB": 84.0, "CE": 100.0, "ER": 92.0, "EU": 100.0, "SE": 100.0, "TS": 100.0},
@@ -1514,17 +1514,17 @@
   });
 
     // Ⅱ. 직무 관심사 차트
-    const interestCodes = ['R','I','A','S','E','C'];
-    const interestLabels = ["현실형","탐구형","예술형","사회형","기업형","관습형"];
-    const interestScores = interestCodes.map(k => data.interest[k]);
-    const interestNorm = interestCodes.map(k => data.interest_norm[k]);
-  new Chart(document.getElementById("interestChart"), {
+    const riasecCodes = ['R','I','A','S','E','C'];
+    const riasecLabels = ["현실형","탐구형","예술형","사회형","기업형","관습형"];
+    const riasecScores = riasecCodes.map(k => data.riasec[k]);
+    const riasecNorm = riasecCodes.map(k => data.riasec_norm[k]);
+  new Chart(document.getElementById("riasecChart"), {
     type: 'bar',
     data: {
-      labels: interestLabels,
+      labels: riasecLabels,
       datasets: [
-        { label: '홍길동님의 점수', data: interestScores, backgroundColor: 'rgba(54, 162, 235, 0.6)', borderColor: 'rgb(54, 162, 235)', borderWidth: 1, borderRadius: 10 },
-        { label: '평균값', data: interestNorm, backgroundColor: 'rgba(255, 99, 132, 0.4)', borderColor: 'rgb(255, 99, 132)', borderWidth: 1, borderRadius: 10 }
+        { label: '홍길동님의 점수', data: riasecScores, backgroundColor: 'rgba(54, 162, 235, 0.6)', borderColor: 'rgb(54, 162, 235)', borderWidth: 1, borderRadius: 10 },
+        { label: '평균값', data: riasecNorm, backgroundColor: 'rgba(255, 99, 132, 0.4)', borderColor: 'rgb(255, 99, 132)', borderWidth: 1, borderRadius: 10 }
       ]
     },
     options: { scales: { y: { beginAtZero: true, max:100 } } }
