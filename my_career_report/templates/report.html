@@ -25,7 +25,7 @@
 
   <section class="report-section">
     <h3>📊 1-1. 검사 결과</h3>
-    <table>
+    <table class="big5-results">
       <thead>
         <tr>
           <th>Big-5 요인</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th>
@@ -46,7 +46,7 @@
 
   <section class="report-section">
     <h3>💡 1-2. 인사이트 & Quick Tip</h3>
-    <table>
+    <table class="insight-tip">
       <thead>
         <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
       </thead>
@@ -75,14 +75,20 @@
 
   <section class="report-section">
     <h3>🎯 1-4. 커리어 매칭 (BIG-5 기반)</h3>
-    <table>
+    <table class="big5-career">
       <thead>
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
       </thead>
       <tbody>
         {% for c in career.big5 %}
         <tr>
-          <td><strong>{{ c.combo }}</strong><br/>({{ c.scores }})</td>
+          <td>
+            <strong>
+              {% for code in c.combo.split('+') %}
+                {{ factor_labels[code] }}{% if not loop.last %}+{% endif %}
+              {% endfor %}
+            </strong>
+          </td>
           <td>{{ c.job }}</td>
           <td>{{ c.reason }}</td>
         </tr>
@@ -119,7 +125,7 @@
 
   <section class="report-section">
     <h3>📊 2-1. 검사 결과</h3>
-    <table>
+    <table class="insight-tip">
       <thead>
         <tr><th>관심도 타입</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
       </thead>
@@ -138,7 +144,7 @@
 
   <section class="report-section">
     <h3>💡 2-2. 인사이트 & Quick Tip</h3>
-    <table>
+    <table class="insight-tip">
       <thead>
         <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
       </thead>
@@ -167,7 +173,7 @@
 
   <section class="report-section">
     <h3>🎯 2-4. 커리어 매칭 (RIASEC 기반)</h3>
-    <table>
+    <table class="insight-tip">
       <thead>
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
       </thead>
@@ -211,7 +217,7 @@
 
   <section class="report-section">
     <h3>📊 3-1. 검사 결과</h3>
-    <table>
+    <table class="insight-tip">
       <thead>
         <tr><th>관심도 타입</th><th>Your Score</th><th>Global Norm</th><th>Δ Index</th></tr>
       </thead>
@@ -230,7 +236,7 @@
 
   <section class="report-section">
     <h3>💡 3-2. 인사이트 & Quick Tip</h3>
-    <table>
+    <table class="insight-tip">
       <thead>
         <tr><th>영역</th><th>한줄 인사이트</th><th>Quick Tip</th></tr>
       </thead>
