@@ -1,2 +1,6 @@
 # Node.js dependencies
 **/node_modules/
+
+# Custom ignore for career reports
+my_career_report/dist/
+my_career_report/charts/output/*.png
