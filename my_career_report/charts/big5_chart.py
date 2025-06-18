@@ -2,9 +2,11 @@
 import os
 import matplotlib.pyplot as plt
 
-def render_big5(data, output_path, cfg):
-    labels = ['E', 'A', 'C', 'N', 'O']
-    scores = [data['big5'][k] for k in labels]
+
+def render_big5(data: dict, output_path: str, cfg: dict) -> None:
+    """Render BIG-5 bar chart and save to ``output_path``."""
+    labels = ["E", "A", "C", "N", "O"]
+    scores = [data["big5"][k] for k in labels]
     dpi = cfg['charts'].get('dpi', 300)
     figsize = cfg['charts'].get('figsize', [6,4])
     plt.figure(figsize=figsize, dpi=dpi)

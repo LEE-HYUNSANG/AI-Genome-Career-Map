@@ -1,11 +1,13 @@
 # File: utils/renderer.py
 import os
+from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
 
-def render_html(data, cfg):
-    """Render the report HTML using Jinja2."""
-    env = Environment(loader=FileSystemLoader('templates'))
+def render_html(data: dict, cfg: dict) -> str:
+    """Render the report HTML using Jinja2 templates."""
+    project_root = Path(__file__).resolve().parents[1]
+    env = Environment(loader=FileSystemLoader(project_root / 'templates'))
     template = env.get_template('report.html')
     html = template.render(**data, styles=cfg['styles'], charts=cfg['charts'])
     output_path = cfg['output']['html']

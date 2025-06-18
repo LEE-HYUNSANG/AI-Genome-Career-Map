@@ -1,0 +1,24 @@
+# my_career_report
+
+This project generates automated career reports using data files and Jinja2 templates.
+
+## Structure
+
+- `config.yaml` – output locations and chart settings
+- `data/` – sample input data
+- `charts/` – chart rendering modules
+- `templates/` – Jinja2 templates and CSS assets
+- `utils/` – helper modules for loading data, rendering HTML and exporting PDF
+
+## Install & Run
+
+```bash
+pip install -r requirements.txt
+python generate_report.py
+```
+
+This will create `dist/report.html` and `dist/report.pdf`.
+
+## Continuous Integration
+
+The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies and runs `generate_report.py` on each push. The generated PDF is uploaded as a workflow artifact.
