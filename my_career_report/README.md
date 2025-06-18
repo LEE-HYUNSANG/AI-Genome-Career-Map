@@ -20,6 +20,10 @@ python generate_report.py
 
 This will create `dist/report.html` and `dist/report.pdf`.
 
+If you see an error about `chartjs-plugin-datalabels` not being found,
+make sure the Node.js dependencies were installed by running `npm install`
+in the `my_career_report` directory.
+
 ### Korean fonts
 
 The charts rely on the **Noto Sans CJK** fonts that ship with most Linux
