@@ -266,8 +266,8 @@
 
   <section class="report-section">
     <h3>🚀 3-3. Profile Tagline & 주요 역할</h3>
-    <p><strong>Tagline</strong>: {{ profile.values.tagline }}</p>
-    <blockquote>{{ profile.values.summary }}</blockquote>
+    <p><strong>Tagline</strong>: {{ profile['values'].tagline }}</p>
+    <blockquote>{{ profile['values'].summary }}</blockquote>
     <ul>
       {% for r in role['values'] %}
       <li>🎯 <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
