@@ -30,14 +30,14 @@ async function renderCharts(dataPath, outDir) {
       labels: big5Labels,
       datasets: [
         {
-          label: `${name} Score`,
+          label: `${name}님의 점수`,
           data: big5Scores,
           backgroundColor: 'rgba(54, 162, 235, 0.3)',
           borderColor: 'rgb(54, 162, 235)',
           borderWidth: 2
         },
         {
-          label: 'Global Norm',
+          label: '평균값',
           data: big5Norm,
           backgroundColor: 'rgba(255, 99, 132, 0.1)',
           borderColor: 'rgb(255, 99, 132)',

@@ -28,7 +28,7 @@
     <table class="big5-results">
       <thead>
         <tr>
-          <th>Big-5 요인</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th>
+          <th>Big-5 요인</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th>
         </tr>
       </thead>
       <tbody>
@@ -42,6 +42,7 @@
         {% endfor %}
       </tbody>
     </table>
+    <p class="footnote">Gosling et al. (2003) TIPI, U.S. college students N ≈ 1,812</p>
   </section>
 
   <section class="report-section">
@@ -127,7 +128,7 @@
     <h3>📊 2-1. 검사 결과</h3>
     <table class="insight-tip">
       <thead>
-        <tr><th>관심도 타입</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th></tr>
+        <tr><th>관심도 타입</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for t in ["R","I","A","S","E","C"] %}
@@ -140,6 +141,7 @@
         {% endfor %}
       </tbody>
     </table>
+    <p class="footnote">Stoll et al. (2020) 독일 대학생 표본 T1, N ≈ 2,368</p>
   </section>
 
   <section class="report-section">
@@ -219,7 +221,7 @@
     <h3>📊 3-1. 검사 결과</h3>
     <table class="insight-tip">
       <thead>
-        <tr><th>관심도 타입</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th></tr>
+        <tr><th>관심도 타입</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for k in ["A","I","Rec","Rel","S","W"] %}
@@ -232,6 +234,7 @@
         {% endfor %}
       </tbody>
     </table>
+    <p class="footnote">O*NET WIL-P&amp;P, 미국 고용센터 내담자·주니어 칼리지 학생 N≈1,119</p>
   </section>
 
   <section class="report-section">
@@ -311,7 +314,7 @@
     <h3>📊 4-1. 검사 결과</h3>
     <table>
       <thead>
-        <tr><th>역량 영역</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th></tr>
+        <tr><th>역량 영역</th><th>{{ name }}님의 점수</th><th>평균값</th><th>Δ Index</th></tr>
       </thead>
       <tbody>
         {% for k in ["EU","TS","CE","AO","SE","CB","ER"] %}
@@ -324,6 +327,7 @@
         {% endfor %}
       </tbody>
     </table>
+    <p class="footnote">Liu et al. (2025), Generative AI Literacy<br/>Nong et al. (2024) AI Literacy Scale<br/>Akuezuilo et al. (2015) Self-Efficacy</p>
   </section>
 
   <section class="report-section">
@@ -403,15 +407,13 @@
     <h3>📊 5-1. 검사 결과</h3>
     <table>
       <thead>
-        <tr><th>핵심 역량</th><th>{{ name }} Score</th><th>Global Norm</th><th>Δ Index</th></tr>
+        <tr><th>핵심 역량</th><th>{{ name }}님의 점수</th></tr>
       </thead>
       <tbody>
         {% for item in tech %}
         <tr>
           <td>{{ item.name }}</td>
           <td>{{ item.score|round(1) }}</td>
-          <td>{{ item.norm|round(1) }}</td>
-          <td>{{ (item.score - item.norm)|round(1) }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -495,7 +497,7 @@
     <h3>📊 6-1. 검사 결과</h3>
     <table>
       <thead>  
-        <tr><th>역량 항목</th><th>{{ name }} Score</th></tr>
+        <tr><th>역량 항목</th><th>{{ name }}님의 점수</th></tr>
       </thead>  
       <tbody>  
         {% for s in soft %}  
@@ -715,10 +717,10 @@
     type: 'radar',
     data: {
       labels: big5Labels,
-      datasets: [
-        { label: '{{ name }} Score', data: big5Scores, backgroundColor: 'rgba(54, 162, 235, 0.3)', borderColor: 'rgb(54, 162, 235)', borderWidth: 2 },
-        { label: 'Global Norm', data: big5Norm, backgroundColor: 'rgba(255, 99, 132, 0.1)', borderColor: 'rgb(255, 99, 132)', borderWidth: 2 }
-      ]
+        datasets: [
+          { label: '{{ name }}님의 점수', data: big5Scores, backgroundColor: 'rgba(54, 162, 235, 0.3)', borderColor: 'rgb(54, 162, 235)', borderWidth: 2 },
+          { label: '평균값', data: big5Norm, backgroundColor: 'rgba(255, 99, 132, 0.1)', borderColor: 'rgb(255, 99, 132)', borderWidth: 2 }
+        ]
     },
     options: { responsive: false, scales: { r: { beginAtZero: true, max:100 } } }
   });
