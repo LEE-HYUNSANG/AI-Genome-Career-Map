@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <title>Chart.js Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'NanumSquareRound Regular', 'NanumSquareRound Bold', Arial, sans-serif;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <canvas id="equityChart" width="600" height="400"></canvas>
@@ -15,6 +21,10 @@
   <canvas id="scatterChart" width="600" height="400"></canvas>
 
   <script>
+    const style = window.getComputedStyle(document.body);
+    Chart.defaults.font.family = style.fontFamily;
+    Chart.defaults.font.size = parseFloat(style.fontSize);
+
     const equityCtx = document.getElementById('equityChart');
     new Chart(equityCtx, {
       type: 'line',
