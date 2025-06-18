@@ -1,5 +1,6 @@
 # File: generate_report.py
 import os
+import re
 import yaml
 
 from utils.loader import load_data
@@ -17,6 +18,19 @@ CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
 DATA_PATH = os.path.join(BASE_DIR, 'data/sample_input.json')
 FIX_PATH = os.path.join(BASE_DIR, 'data/fix/fix_input.json')
 
+
+def collapse_keys(obj):
+    """Recursively strip Korean labels like '외향성 (E)' -> 'E'."""
+    if isinstance(obj, dict):
+        new_obj = {}
+        for k, v in obj.items():
+            m = re.search(r'\(([^)]+)\)\s*$', k)
+            new_key = m.group(1) if m else k
+            new_obj[new_key] = collapse_keys(v)
+        return new_obj
+    if isinstance(obj, list):
+        return [collapse_keys(v) for v in obj]
+    return obj
 
 def main():
     set_korean_font()
@@ -45,6 +59,7 @@ def main():
     if os.path.exists(FIX_PATH):
         fix_data = load_data(FIX_PATH)
         data.update(fix_data)
+    data = collapse_keys(data)
     data = round_floats(data, 1)
 
     os.makedirs(os.path.join(BASE_DIR, 'dist'), exist_ok=True)
