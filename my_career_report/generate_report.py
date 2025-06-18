@@ -6,6 +6,7 @@ from utils.loader import load_data
 from utils.renderer import render_html
 from utils.exporter import html_to_pdf
 from utils.fontconfig import set_korean_font
+from utils.rounder import round_floats
 from charts.chartjs_data import generate_chartjs_data
 from charts.big5_chart import render_big5
 from charts.other_charts import (
@@ -45,6 +46,7 @@ def main():
     }
 
     data = load_data(DATA_PATH)
+    data = round_floats(data, 1)
 
     os.makedirs(os.path.join(BASE_DIR, 'dist'), exist_ok=True)
 
