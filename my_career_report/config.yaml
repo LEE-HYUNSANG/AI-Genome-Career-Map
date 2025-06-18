@@ -2,8 +2,13 @@ output:
   html: "dist/report.html"
   pdf:  "dist/report.pdf"
 styles:
-  css: "templates/assets/style.css"
+  css:  "templates/assets/style.css"
 charts:
-  big5:    "charts/output/big5.png"
-  dpi:     300
+  big5:     "charts/output/big5.png"
+  interest: "charts/output/interest.png"
+  values:   "charts/output/values.png"
+  ai:       "charts/output/ai.png"
+  tech:     "charts/output/tech.png"
+  soft:     "charts/output/soft.png"
+  dpi:      300
   figsize: [6,4]
