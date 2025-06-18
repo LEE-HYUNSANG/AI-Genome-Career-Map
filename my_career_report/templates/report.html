@@ -8,8 +8,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>📝 AI 기반 진로 탐색 및 역량 진단 결과 보고서</h1>
-  <p>👤 {{ name }} | 📅 {{ date }}</p>
+  <div class="cover-page">
+    <h1>📝 AI 기반 진로 탐색 및 역량 진단 결과 보고서</h1>
+    <p style="font-size:1.2em;">👤 {{ name }} | 📅 {{ date }}</p>
+  </div>
+  <div class="page-break"></div>
+
   <hr/>
 
   <!-- Ⅰ. 개인성향 BIG5 요인 분석 -->
@@ -30,9 +34,9 @@
         {% for factor in ["E","A","C","N","O"] %}
         <tr>
           <td>{{ factor }}</td>
-          <td>{{ big5[factor] }}</td>
-          <td>{{ big5_norm[factor] }}</td>
-          <td>{{ big5[factor] - big5_norm[factor] }}</td>
+          <td>{{ big5[factor]|round(1) }}</td>
+          <td>{{ big5_norm[factor]|round(1) }}</td>
+          <td>{{ (big5[factor] - big5_norm[factor])|round(1) }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -48,7 +52,7 @@
       <tbody>
         {% for factor in ["E","A","C","N","O"] %}
         <tr>
-          <td>{{ factor }} (Δ={{ big5[factor] - big5_norm[factor] }})</td>
+          <td>{{ factor }} (Δ={{ (big5[factor] - big5_norm[factor])|round(1) }})</td>
           <td>{{ insight[factor] }}</td>
           <td>{{ tip[factor] }}</td>
         </tr>
@@ -122,9 +126,9 @@
         {% for t in ["R","I","A","S","E","C"] %}
         <tr>
           <td>{{ t }}</td>
-          <td>{{ interest[t] }}</td>
-          <td>{{ interest_norm[t] }}</td>
-          <td>{{ interest[t] - interest_norm[t] }}</td>
+          <td>{{ interest[t]|round(1) }}</td>
+          <td>{{ interest_norm[t]|round(1) }}</td>
+          <td>{{ (interest[t] - interest_norm[t])|round(1) }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -140,7 +144,7 @@
       <tbody>
         {% for t in ["R","I","A","S","E","C"] %}
         <tr>
-          <td>{{ t }} (Δ={{ interest[t] - interest_norm[t] }})</td>
+          <td>{{ t }} (Δ={{ (interest[t] - interest_norm[t])|round(1) }})</td>
           <td>{{ insight.interest[t] }}</td>
           <td>{{ tip.interest[t] }}</td>
         </tr>
@@ -214,9 +218,9 @@
         {% for k in ["A","I","Rec","Rel","S","W"] %}
         <tr>
           <td>{{ k }}</td>
-          <td>{{ values[k] }}</td>
-          <td>{{ values_norm[k] }}</td>
-          <td>{{ values[k] - values_norm[k] }}</td>
+          <td>{{ values[k]|round(1) }}</td>
+          <td>{{ values_norm[k]|round(1) }}</td>
+          <td>{{ (values[k] - values_norm[k])|round(1) }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -232,7 +236,7 @@
       <tbody>
         {% for k in ["A","I","Rec","Rel","S","W"] %}
         <tr>
-          <td>{{ k }} (Δ={{ values[k] - values_norm[k] }})</td>
+          <td>{{ k }} (Δ={{ (values[k] - values_norm[k])|round(1) }})</td>
           <td>{{ insight.values[k] }}</td>
           <td>{{ tip.values[k] }}</td>
         </tr>
@@ -306,9 +310,9 @@
         {% for k in ["EU","TS","CE","AO","SE","CB","ER"] %}
         <tr>
           <td>{{ k }}</td>
-          <td>{{ ai[k] }}</td>
-          <td>{{ ai_norm[k] }}</td>
-          <td>{{ ai[k] - ai_norm[k] }}</td>
+          <td>{{ ai[k]|round(1) }}</td>
+          <td>{{ ai_norm[k]|round(1) }}</td>
+          <td>{{ (ai[k] - ai_norm[k])|round(1) }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -324,7 +328,7 @@
       <tbody>
         {% for k in ["EU","TS","CE","AO","SE","CB","ER"] %}
         <tr>
-          <td>{{ k }} (Δ={{ ai[k] - ai_norm[k] }})</td>
+          <td>{{ k }} (Δ={{ (ai[k] - ai_norm[k])|round(1) }})</td>
           <td>{{ insight.ai[k] }}</td>
           <td>{{ tip.ai[k] }}</td>
         </tr>
@@ -398,9 +402,9 @@
         {% for item in tech %}
         <tr>
           <td>{{ item.name }}</td>
-          <td>{{ item.score }}</td>
-          <td>{{ item.norm }}</td>
-          <td>{{ item.score - item.norm }}</td>
+          <td>{{ item.score|round(1) }}</td>
+          <td>{{ item.norm|round(1) }}</td>
+          <td>{{ (item.score - item.norm)|round(1) }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -489,8 +493,8 @@
       <tbody>  
         {% for s in soft %}  
         <tr>  
-          <td>{{ s.name }}</td>  
-          <td>{{ s.score }}</td>  
+          <td>{{ s.name }}</td>
+          <td>{{ s.score|round(1) }}</td>
         </tr>  
         {% endfor %}  
       </tbody>  
