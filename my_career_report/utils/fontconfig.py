@@ -15,6 +15,9 @@ def set_korean_font() -> None:
         plt.rcParams["font.family"] = font_name
     else:
         for name in [
+            "NanumSquareNeo Bold",
+            "NanumSquareRound",
+            "NanumSquareRoundOTF",
             "Noto Sans CJK KR",
             "NanumGothic",
             "Malgun Gothic",

@@ -1,6 +1,23 @@
 /* File: templates/assets/style.css */
+/* Import preferred Korean web fonts if available */
+@font-face {
+    font-family: 'NanumSquare Neo Bold';
+    font-weight: bold;
+    src: local('NanumSquare Neo Bold');
+}
+@font-face {
+    font-family: 'NanumSquareRound Bold';
+    font-weight: bold;
+    src: local('NanumSquareRound Bold');
+}
+@font-face {
+    font-family: 'NanumSquareRound Regular';
+    font-weight: normal;
+    src: local('NanumSquareRound Regular');
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'NanumSquareRound Regular', 'NanumSquareRound Bold', Arial, sans-serif;
     font-size: 14px;
     line-height: 1.6;
     letter-spacing: 0.03em;
@@ -16,9 +33,11 @@ th, td {
     border: 1px solid #ddd;
     padding: 8px;
 }
-h1, h2 {
+h1, h2, h3, h4 {
     text-align: center;
     color: #2b5797;
+    font-family: 'NanumSquare Neo Bold', sans-serif;
+    font-weight: bold;
 }
 
 th {
