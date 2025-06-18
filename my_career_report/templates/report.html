@@ -243,7 +243,7 @@
     <p><strong>Tagline</strong>: {{ profile.values.tagline }}</p>
     <blockquote>{{ profile.values.summary }}</blockquote>
     <ul>
-      {% for r in role.values %}
+      {% for r in role['values'] %}
       <li>🎯 <strong>{{ r.name }}</strong>: {{ r.reason }}</li>
       {% endfor %}
     </ul>
@@ -256,7 +256,7 @@
         <tr><th>상위 특성 조합</th><th>추천 직무</th><th>추천 사유</th></tr>
       </thead>
       <tbody>
-        {% for c in career.values %}
+        {% for c in career['values'] %}
         <tr>
           <td><strong>{{ c.combo }}</strong><br/>({{ c.scores }})</td>
           <td>{{ c.job }}</td>
@@ -270,7 +270,7 @@
   <details>
     <summary>⚙️ 3-5. 성장 포인트 3가지</summary>
     <ol>
-      {% for g in growth.values %}
+      {% for g in growth['values'] %}
       <li><strong>{{ g.title }}</strong> — {{ g.desc }}</li>
       {% endfor %}
     </ol>
@@ -279,7 +279,7 @@
   <details>
     <summary>⚠️ 3-6. 리스크 관리 3가지</summary>
     <ol>
-      {% for r in risk.values %}
+      {% for r in risk['values'] %}
       <li><strong>{{ r.title }}</strong> — {{ r.desc }}</li>
       {% endfor %}
     </ol>
@@ -702,8 +702,8 @@
     });
 
     // Ⅴ. 기술 역량 차트
-    const techLabels = {{ tech | map(attribute='name') | list }};
-    const techScores = {{ tech | map(attribute='score') | list }};
+    const techLabels = {{ tech | map(attribute='name') | list | tojson }};
+    const techScores = {{ tech | map(attribute='score') | list | tojson }};
     new Chart(document.getElementById("techChart"), {
       type: 'bar',
       data: { labels: techLabels, datasets: [{ label: 'Your Score', data: techScores }] },
@@ -711,8 +711,8 @@
     });
 
     // Ⅵ. 소프트 스킬 차트
-    const softLabels = {{ soft | map(attribute='name') | list }};
-    const softScores = {{ soft | map(attribute='score') | list }};
+    const softLabels = {{ soft | map(attribute='name') | list | tojson }};
+    const softScores = {{ soft | map(attribute='score') | list | tojson }};
     new Chart(document.getElementById("softChart"), {
       type: 'bar',
       data: { labels: softLabels, datasets: [{ label: 'Your Score', data: softScores }] },
