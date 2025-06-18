@@ -1,0 +1,42 @@
+<!-- File: templates/report.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} AI Career Report</title>
+    <link rel="stylesheet" href="{{ styles.css }}">
+</head>
+<body>
+    <h1>AI Career and Competency Diagnostic Report</h1>
+    <h2>{{ name }}</h2>
+    <p>Date: {{ date }}</p>
+    <img src="{{ charts.big5 }}" alt="BIG-5 Chart" />
+
+    <details open>
+        <summary>&#8544;. BIG-5 Personality Overview</summary>
+        <table>
+            <tr>
+                <th>Trait</th>
+                <th>Score</th>
+                <th>Insight</th>
+                <th>Tip</th>
+            </tr>
+            {% for trait in ['E', 'A', 'C', 'N', 'O'] %}
+            <tr>
+                <td>{{ trait }}</td>
+                <td>{{ big5[trait] }}</td>
+                <td>{{ insight[trait] }}</td>
+                <td>{{ tip[trait] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </details>
+
+    {% for num in range(2, 10) %}
+    <details>
+        <summary>Section {{ num }}</summary>
+        <!-- Placeholder for Section {{ num }} -->
+    </details>
+    {% endfor %}
+</body>
+</html>
