@@ -8,14 +8,8 @@ from utils.exporter import html_to_pdf
 from utils.fontconfig import set_korean_font
 from utils.rounder import round_floats
 from charts.chartjs_data import generate_chartjs_data
-from charts.big5_chart import render_big5
-from charts.other_charts import (
-    render_interest,
-    render_values,
-    render_ai,
-    render_tech,
-    render_soft,
-)
+import json
+import subprocess
 
 BASE_DIR = os.path.dirname(__file__)
 CONFIG_PATH = os.path.join(BASE_DIR, 'config.yaml')
@@ -50,13 +44,12 @@ def main():
 
     os.makedirs(os.path.join(BASE_DIR, 'dist'), exist_ok=True)
 
-    # Create static chart images for the PDF
-    render_big5(data, chart_paths['big5'], cfg)
-    render_interest(data, chart_paths['interest'], cfg)
-    render_values(data, chart_paths['values'], cfg)
-    render_ai(data, chart_paths['ai'], cfg)
-    render_tech(data, chart_paths['tech'], cfg)
-    render_soft(data, chart_paths['soft'], cfg)
+    # Create static chart images for the PDF using Chart.js
+    chart_data_tmp = os.path.join(chart_dir, 'chartjs_input.json')
+    with open(chart_data_tmp, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False)
+    node_script = os.path.join(BASE_DIR, 'charts', 'render_chartjs_images.js')
+    subprocess.run(['node', node_script, chart_data_tmp, chart_dir], check=True)
 
     generate_chartjs_data(data, cfg['charts']['data'])
 

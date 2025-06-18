@@ -14,6 +14,7 @@ This project generates automated career reports using data files and Jinja2 temp
 
 ```bash
 pip install -r requirements.txt
+npm install --silent
 python generate_report.py
 ```
 
@@ -44,6 +45,6 @@ The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies 
 
 ## Chart.js Data
 
-`generate_report.py` now exports a JSON file with the data needed for the
-Chart.js visualisations. The file is written to `charts/output/chart_data.json`
-and can be used directly in web pages.
+`generate_report.py` now renders Chart.js graphs for the PDF by calling a Node
+script. It also exports a JSON file with the data needed for the web version at
+`charts/output/chart_data.json`.
